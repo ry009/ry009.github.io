@@ -1107,7 +1107,7 @@ blockquote, q {
 				position: relative;}
 				#wrap .containerArticle#Resume .resumeList > li:not(:last-of-type) {
 					margin-bottom: 50px;}
-				#wrap .containerArticle#Resume .resumeList > li::before {
+				#wrap .containerArticle#Resume .resumeList > li .animationComp {
 					position: absolute;
 					top: 1.5%;
 					left: 1%;

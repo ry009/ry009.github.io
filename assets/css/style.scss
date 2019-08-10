@@ -7,6 +7,7 @@ $AleoFamily: 'Aleo', serif;
 $LoraFamily: 'Lora', serif;
 $MontserratFamily: 'Montserrat', sans-serif;
 $futura: futura-pt-condensed,sans-serif;
+$futuraB: "Futura-BoldOblique", sans-serif;
 
 @font-face {
 	font-family: 'yumin';
@@ -1470,8 +1471,10 @@ blockquote, q {
 						color: #f5f5f5;
 						content: attr(data-co);
 						z-index: -1;
-						font-size: 6.2rem;
-						font-family: $MontserratFamily;
+						font-size: 9.2rem;
+						font-family: $futuraB;
+						font-style: italic;
+						font-weight: 800;
 					}
 
 					dl.masterDl {

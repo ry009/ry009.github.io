@@ -537,7 +537,8 @@ blockquote, q {
 					align-content: center;
 					flex-flow: row wrap;
 					align-items: center;
-					font-weight: bold;}
+					font-weight: bold;
+					color: #333;}
 					#wrap .containerArticle#Creation .comContents .contentDiv .timeContainer #target, #wrap .containerArticle#Creation .comContents .contentDiv .timeContainer #result {
 						font-size: 32px;
 						margin: 0 0 15px;
@@ -587,7 +588,8 @@ blockquote, q {
 					background: #eee;
 					padding: 20px;
 					width: 500px;
-					margin: 0 auto;}
+					margin: 0 auto;
+					color: #333;}
 					#wrap .containerArticle#Creation .comContents .contentDiv .cashier .inputArea {
 						width: 100%;
 						display: -webkit-flex;
@@ -678,7 +680,8 @@ blockquote, q {
 				#wrap .containerArticle#Creation .comContents .contentDiv .passGenerator {
 					width: 500px;
 					padding: 20px;
-					margin: 0 auto;}
+					margin: 0 auto;
+					color: #333;}
 					#wrap .containerArticle#Creation .comContents .contentDiv .passGenerator .inputPassArea {
 						width: 100%;
 						display: -webkit-flex;
@@ -798,7 +801,8 @@ blockquote, q {
 						opacity: 1;}
 				#wrap .containerArticle#Creation .comContents .contentDiv .timerContainer {
 					width: 500px;
-					margin: 0 auto;}
+					margin: 0 auto;
+					color: #333;}
 					#wrap .containerArticle#Creation .comContents .contentDiv .timerContainer #timer {
 						display: -webkit-flex;
 						display: flex;

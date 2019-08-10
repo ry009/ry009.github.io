@@ -198,7 +198,9 @@ blockquote, q {
 					font-weight: 800;
 					font-style: italic;}
 				#wrap .containerArticle h2 span:last-of-type {
-					font-size: 1.4rem;}
+					font-size: 1.6rem;
+					font-weight: bold;
+					font-style: italic;}
 		#wrap .containerArticle .description {
 			font-size: 1.4rem;
 			line-height: 2.2em;

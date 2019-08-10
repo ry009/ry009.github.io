@@ -130,7 +130,7 @@ blockquote, q {
 		bottom: 0;
 		z-index: -1;
 		opacity: 0.8;
-		background: url(../images/bg.jpg) no-repeat center center;
+		background: url(../images/bg2.jpg) no-repeat center center;
 		background-attachment: fixed;
 		background-size: cover;}
 	#wrap .containerArticle {
@@ -183,8 +183,8 @@ blockquote, q {
 			margin: 0 0 40px;}
 			#wrap .containerArticle h2.matrix {
 				color: #0095ff;
-				-webkit-animation: blur 2s linear 0s 1, hue 60s linear 2s infinite, matrix 0.3s linear 0s 1;
-				animation: blur 2s linear 0s 1, hue 60s linear 2s infinite, matrix 0.3s linear 0s 1;
+				-webkit-animation: blur 2s linear 0s 1, hue 40s linear 2s infinite, matrix 0.3s linear 0s 1;
+				animation: blur 2s linear 0s 1, hue 40s linear 2s infinite, matrix 0.3s linear 0s 1;
 				-webkit-animation-fill-mode: both;
 				animation-fill-mode: both;}
 			#wrap .containerArticle h2 span {
@@ -192,8 +192,11 @@ blockquote, q {
 				width: 100%;}
 				#wrap .containerArticle h2 span:first-of-type {
 					margin-bottom: 10px;
-					font-size: 4.2rem;
-					font-family: futura-pt-condensed, sans-serif;}
+					letter-spacing: -0.2rem;
+					font-size: 5.4rem;
+					font-family: futura-pt-condensed, sans-serif;
+					font-weight: 800;
+					font-style: italic;}
 				#wrap .containerArticle h2 span:last-of-type {
 					font-size: 1.4rem;}
 		#wrap .containerArticle .description {

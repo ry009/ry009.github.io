@@ -300,7 +300,7 @@ blockquote, q {
 		bottom: 0;
 		z-index: -1;
 		opacity: 0.8;
-		background: url(../images/bg.jpg) no-repeat center center;
+		background: url(../images/bg2.jpg) no-repeat center center;
 		background-attachment: fixed;
 		background-size: cover;
 	}
@@ -355,7 +355,7 @@ blockquote, q {
 
 			&.matrix {
 				color: $mainColor;
-				@include animation((blur 2s linear 0s 1, hue 60s linear 2s infinite, matrix 0.3s linear 0s 1));
+				@include animation((blur 2s linear 0s 1, hue 40s linear 2s infinite, matrix 0.3s linear 0s 1));
 			}
 
 			span {
@@ -364,8 +364,11 @@ blockquote, q {
 
 				&:first-of-type {
 					margin-bottom: 10px;
-					font-size: 4.2rem;
+					letter-spacing: -0.2rem;
+					font-size: 5.4rem;
 					font-family: $futura;
+					font-weight: 800;
+					font-style: italic;
 				}
 
 				&:last-of-type {

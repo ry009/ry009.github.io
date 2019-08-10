@@ -6,6 +6,7 @@ $NunitoFamily: 'Nunito', sans-serif;
 $AleoFamily: 'Aleo', serif;
 $LoraFamily: 'Lora', serif;
 $MontserratFamily: 'Montserrat', sans-serif;
+$futura: futura-pt-condensed,sans-serif;
 
 @font-face {
 	font-family: 'yumin';
@@ -364,7 +365,7 @@ blockquote, q {
 				&:first-of-type {
 					margin-bottom: 10px;
 					font-size: 4.2rem;
-					font-family: $MontserratFamily;
+					font-family: $futura;
 				}
 
 				&:last-of-type {

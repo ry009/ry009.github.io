@@ -973,7 +973,11 @@ blockquote, q {
 						fieldset {
 							background: #f6f7f1;
 							padding: 20px;
-
+							
+							& legend {
+								background: #f6f7f1;
+							}
+							
 							& p {
 								width: 100%;
 								text-align: center;

@@ -743,6 +743,8 @@ blockquote, q {
 					#wrap .containerArticle#Creation .comContents .contentDiv .passGenerator fieldset {
 						background: #f6f7f1;
 						padding: 20px;}
+						#wrap .containerArticle#Creation .comContents .contentDiv .passGenerator fieldset legend {
+							background: #f6f7f1;}
 						#wrap .containerArticle#Creation .comContents .contentDiv .passGenerator fieldset p {
 							width: 100%;
 							text-align: center;}

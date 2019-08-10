@@ -1119,7 +1119,10 @@ blockquote, q {
 					font-size: 9.2rem;
 					font-family: "Futura-BoldOblique", sans-serif;
 					font-style: italic;
-					font-weight: 800;}
+					font-weight: 800;
+					-webkit-transform: skewX(-8deg);
+					transform: skewX(-8deg);
+					letter-spacing: -0.4rem;}
 				#wrap .containerArticle#Resume .resumeList > li dl.masterDl > dt {
 					margin: 0 0 20px;}
 					#wrap .containerArticle#Resume .resumeList > li dl.masterDl > dt span {

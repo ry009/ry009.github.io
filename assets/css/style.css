@@ -1106,7 +1106,9 @@ blockquote, q {
 				margin: 0;
 				position: relative;}
 				#wrap .containerArticle#Resume .resumeList > li:not(:last-of-type) {
-					margin-bottom: 50px;}
+					margin-bottom: 150px;}
+				#wrap .containerArticle#Resume .resumeList > li:last-of-type {
+					margin-bottom: 100px;}
 				#wrap .containerArticle#Resume .resumeList > li .animationComp {
 					position: absolute;
 					top: 1.5%;

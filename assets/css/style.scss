@@ -1459,7 +1459,10 @@ blockquote, q {
 					position: relative;
 
 					&:not(:last-of-type) {
-						margin-bottom: 50px;
+						margin-bottom: 150px;
+					}
+					&:last-of-type {
+						margin-bottom: 100px;
 					}
 
 					.animationComp {

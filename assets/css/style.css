@@ -917,7 +917,8 @@ blockquote, q {
 								color: #d84f66;}
 				#wrap .containerArticle#Creation .comContents .contentDiv .stopwatchContainer {
 					width: 500px;
-					margin: 0 auto;}
+					margin: 0 auto;
+					color: #333;}
 					#wrap .containerArticle#Creation .comContents .contentDiv .stopwatchContainer #timerWatch {
 						font-size: 32px;
 						margin: 0 0 15px;

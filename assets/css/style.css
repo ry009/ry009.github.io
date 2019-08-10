@@ -801,8 +801,7 @@ blockquote, q {
 						opacity: 1;}
 				#wrap .containerArticle#Creation .comContents .contentDiv .timerContainer {
 					width: 500px;
-					margin: 0 auto;
-					color: #333;}
+					margin: 0 auto;}
 					#wrap .containerArticle#Creation .comContents .contentDiv .timerContainer #timer {
 						display: -webkit-flex;
 						display: flex;

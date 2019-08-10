@@ -731,6 +731,7 @@ blockquote, q {
 					.timeContainer {
 						@include comContainer($width: 300px,$maxWidth: 100%,$display: flex,$alignContent: center,$alignItems: center);
 						font-weight: bold;
+						color: #333;
 
 						#target,#result {
 							font-size: 32px;
@@ -793,6 +794,7 @@ blockquote, q {
 						padding: 20px;
 						width: 500px;
 						margin: 0 auto;
+						color: #333;
 
 						.inputArea {
 							width: 100%;
@@ -900,6 +902,7 @@ blockquote, q {
 						width: 500px;
 						padding: 20px;
 						margin: 0 auto;
+						color: #333;
 
 						.inputPassArea {
 							width: 100%;

@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js no-svg">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="山崎 塁 ポートフォリオ" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-title" content="山崎 塁 ポートフォリオ">
+	<meta name='robots' content='noindex,follow' />
+
+	<link href="https://fonts.googleapis.com/css?family=Aleo|Lora|Noto+Sans|Nunito|Montserrat" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+	<script src="./assets/js/main.js"></script>
+	<script src="./assets/js/headroom/Headroom.js"></script>
+	<script src="./assets/js/headroom/jQuery.headroom.js"></script>
+	<script>
+		$(window).on('scroll', function() {
+			$('header').addClass(' scrollUp');
+			$('header').headroom({
+				"tolerance": 0,
+				"offset": $('header').outerHeight(),
+				"classes": {
+					"initial": "animatedFix",
+					"pinned": "scrollUp",
+					"unpinned": "scrollDown",
+					"top": "headroom--top",
+					"notTop": "headroom--not-top-scroll"
+				}
+			});
+		});
+	</script>
+
+	<!-- scrollアニメーション -->
+	<link href="./assets/js/ScrollTrigger/animate.css" rel="stylesheet" type="text/css" />
+	<script src="./assets/js/ScrollTrigger/ScrollTrigger.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function(){
+			var trigger = new ScrollTrigger({
+				offset: {
+					x: 0,
+					y: -300
+				},
+				addHeight: true,
+				once: true
+			}, document.body, window);
+		});
+	</script>
+
+	<script>
+		$(function() {
+			// スクロールのオフセット値
+			// ==================================================================================
+			var offsetY = 0;
+			if (window.matchMedia('(min-width: 769px)').matches) {
+				offsetY = -80;
+			} else if (window.matchMedia('(max-width: 768px)').matches) {
+				offsetY = 0;
+			}
+			// スクロールにかかる時間
+			var time = 500;
+
+			// ページ内リンクのみを取得
+			// ==================================================================================
+			$('.globalNavi ul li a[href^="#"]').on('click', function() {
+				// 移動先となる要素を取得
+				var target = $(this.hash);
+				if (!target.length) return ;
+				// 移動先となる値
+				var targetY = target.offset().top+offsetY;
+				// スクロールアニメーション
+				$('html,body').animate({scrollTop: targetY}, time, 'swing');
+				// アンカーリンク スムーズスクロール URLにIDが載らない ハッシュ書き換えとく
+				//window.history.pushState(null, null, this.hash);
+				// デフォルトの処理はキャンセル
+				return false;
+			});
+
+			// メニューのアンカーリンクカレント
+			// ==================================================================================
+			var margin = 100,   //ウインドウ上部からどれぐらいの位置で変化させるか
+			sectionTop = [], //sectionのTop位置格納用
+			current = -1;   //現在のカレント位置
+
+			//(1)各sectionの縦位置を取得
+			$('.containerArticle').each(function(i) {
+				sectionTop[i] = $(this).offset().top;
+			});
+
+			//init
+			changeNavCurrent(0);
+
+			//スクロールした時の処理
+			// ==================================================================================
+			$(window).scroll(function(){
+				scrollY = $(window).scrollTop();
+
+				//(2)各セクションの位置とスクロール位置を比較して、条件にあったらchangeNavCurrentを実行
+				for (var i = sectionTop.length - 1 ; i >= 0; i--) {
+					if (scrollY > sectionTop[i] - margin) {
+							changeNavCurrent(i);
+						break;
+					}
+				}
+			});
+
+			function changeNavCurrent(curNum) {
+				if (curNum != current) {
+					current = curNum;
+					curNum2 = curNum + 1;//HTML順序用
+					$('.globalNavi li a').removeClass('current');
+					$('.globalNavi li:nth-child(' + curNum2 +') a').addClass('current');
+				}
+			}
+		});
+	</script>
+
+	<!-- ライトボックス -->
+	<link href="./assets/js/photoswipe/photoswipe.css" rel="stylesheet" type="text/css" />
+	<link href="./assets/js/photoswipe/default-skin/default-skin.css" rel="stylesheet" type="text/css" />
+	<!-- ライトボックスJS -->
+	<script src="./assets/js/photoswipe/photoswipe.min.js"></script>
+	<script src="./assets/js/photoswipe/photoswipe-ui-default.js"></script>
+
+	<title>A Trajectory For Purpose</title>
+	<meta name='robots' content='noindex,follow' />
+</head>
+
+<body class="home">
+	<header>
+		<article>
+			<h1><span>A Trajectory For Purpose</span></h1>
+			<nav class="globalNavi">
+				<ul>
+					<li><a href="#Biography"><span data-Hover="自己紹介">Biography</span></a></li>
+					<li><a href="#Creation"><span data-Hover="製作実績">Creation</span></a></li>
+					<li><a href="#Resume"><span data-Hover="職務経歴">Resume</span></a></li>
+					<li><a href="./js"><span data-Hover="カリキュラム">JS Curriculum</span></a></li>
+					<li><a href="./ReactTodoApp"><span data-Hover="React Todo">React Todo</span></a></li>
+				</ul>
+			</nav>
+		</article>
+	</header>
+
+	<div id="wrap">
+		<article class="containerArticle" id="Biography">
+			<div class="comContents">
+				<h2 class="animated matrix">
+					<span>Biography</span><span>自己紹介</span>
+				</h2>
+
+				<div class="biographyList">
+					<h3>
+						<span class="name">山崎　塁</span>
+						<span class="kana">ヤマザキルイ</span>
+					</h3>
+					<p class="birthday">1975.09.03</p>
+				</div>
+			</div>
+		</article>
+
+		<article class="containerArticle" id="Creation">
+			<div class="comContents">
+				<h2 class="animated" data-scroll="toggle(.matrix, .invisible)">
+					<span>Creation</span><span>製作実績</span>
+				</h2>
+
+				<ul>
+					<li>
+						<dl>
+							<dt>
+								<span>
+									<span class="eng">Areus CO., LTD.</span>
+									<span class="name">
+										<span>株式会社</span>
+										<span>アレス</span>
+									</span>
+								</span>
+							</dt>
+							<dd>
+								<ul>
+									<li class="animated" data-scroll="toggle(.fadeInUp, .invisible)">
+										<div class="my-gallery">
+											<figure>
+												<a href="./assets/images/pre/areus.jpg" class="imageBlock" data-size="1432x2718">
+													<span><img src="./assets/images/areus.jpg" alt="コーポレートサイト" /></span>
+												</a>
+												<figcaption>
+													<h3><span>株式会社アレス コーポレートサイト</span></h3>
+													<p class="disc">
+														ワードプレスを使用しカスタマイズ。<br />
+														レスポンシブ対応。
+													</p>
+												</figcaption>
+											</figure>
+										</div>
+										<p class="url"><a href="https://www.areus.jp/" target="_blank"><span>Areus</span></a></p>
+									</li>
+
+									<li class="animated" data-scroll="toggle(.fadeInUp, .invisible)">
+										<div class="my-gallery">
+											<figure>
+												<a href="./assets/images/pre/onerank01.jpg" class="imageBlock" data-size="1432x2987">
+													<span><img src="./assets/images/onerank01.jpg" alt="美容向け求人サイト" /></span>
+												</a>
+												<figcaption>
+													<h3><span>美容系求人サイト Onerank</span></h3>
+													<p class="disc">
+														美容系に特化した求人サイト<br />
+														web表示・管理画面（ユーザー側・企業側・管理側）をCodeIgniterを使用し製作。<br />
+														開発メンバー（3人）として基本的にマークアップをメインで軽度のphpも携わる。<br />
+														開発期間：約6か月
+													</p>
+												</figcaption>
+											</figure>
+										</div>
+										<p class="url"><a href="https://recruit.one-rank.jp/" target="_blank"><span>Onerank</span></a></p>
+									</li>
+
+									<li class="animated" data-scroll="toggle(.fadeInUp, .invisible)">
+										<div class="my-gallery">
+											<figure>
+												<a href="./assets/images/pre/stylestock.jpg" class="imageBlock" data-size="1432x4021">
+													<span><img src="./assets/images/stylestock.jpg" alt="美容室向け写真販売サイト" /></span>
+												</a>
+												<figcaption>
+													<h3><span>美容室向け写真販売サイト StyleStock</span></h3>
+													<p class="disc">
+														ホットペッパー掲載用に特化したヘアカタログ写真販売サイト<br />
+														web表示・管理側管理画面をCodeIgniterを使用し製作。<br />
+														開発メンバー（3人）として基本的にマークアップをメインで軽度のphpも携わる。<br />
+														開発期間：約3か月
+													</p>
+												</figcaption>
+											</figure>
+										</div>
+										<p class="url"><a href="https://style-stock.com/" target="_blank"><span>StyleStock</span></a></p>
+									</li>
+
+									<li class="animated" data-scroll="toggle(.fadeInUp, .invisible)">
+										<div class="my-gallery">
+											<figure>
+												<a href="./assets/images/pre/hitotoki.jpg" class="imageBlock" data-size="1432x3527">
+													<span><img src="./assets/images/hitotoki.jpg" alt="ひとときのしずくオフィシャルサイト" /></span>
+												</a>
+												<figcaption>
+													<h3><span>ひとときのしずくオフィシャルサイト</span></h3>
+													<p class="disc">
+														シャンプーやボディソープなどを自社開発・販売会社のECサイト<br />
+														eccube3系を使用し製作。
+													</p>
+												</figcaption>
+											</figure>
+										</div>
+										<p class="url"><a href="http://www.hitotoki-relax.com/" target="_blank"><span>ひとときのしずく</span></a></p>
+									</li>
+
+									<li class="animated" data-scroll="toggle(.fadeInUp, .invisible)">
+										<div class="my-gallery">
+											<figure>
+												<a href="./assets/images/pre/tokyokaikann.jpg" class="imageBlock" data-size="1432x12407">
+													<span><img src="./assets/images/tokyokaikann.jpg" alt="NEWCLASSICS 東京會舘LP" /></span>
+												</a>
+												<figcaption>
+													<h3><span>NEWCLASSICS 東京會舘LP</span></h3>
+													<p class="disc">
+														東京會舘の特設ランディングページ。東京會舘<br />
+														画像をSVGを使用し、デザイン重視の以来のためレスポンス仕様に合わせて要素配置の比率を割り出しCSSを当て込み。<br />
+													</p>
+												</figcaption>
+											</figure>
+										</div>
+										<p class="url"><a href="https://www.kaikan.co.jp/2019reopen/" target="_blank"><span>東京會舘LP</span></a></p>
+									</li>
+
+									<li class="animated" data-scroll="toggle(.fadeInUp, .invisible)">
+										<div class="my-gallery">
+											<figure>
+												<a href="./assets/images/pre/lian.jpg" class="imageBlock" data-size="1432x3145">
+													<span><img src="./assets/images/lian.jpg" alt="Total Beauty Salon Lian" /></span>
+												</a>
+												<figcaption>
+													<h3><span>Total Beauty Salon Lian</span></h3>
+													<p class="disc">
+														ワードプレスを使用しカスタマイズ。<br />
+														レスポンシブ対応。
+													</p>
+												</figcaption>
+											</figure>
+										</div>
+										<p class="url"><a href="https://lian.tokyo/" target="_blank"><span>Lian</span></a></p>
+									</li>
+
+									<li class="animated" data-scroll="toggle(.fadeInUp, .invisible)">
+										<div class="my-gallery">
+											<figure>
+												<a href="./assets/images/pre/attractive.jpg" class="imageBlock" data-size="1432x4532">
+													<span><img src="./assets/images/attractive.jpg" alt="株式会社ATTRACTIVE" /></span>
+												</a>
+												<figcaption>
+													<h3><span>株式会社ATTRACTIVE</span></h3>
+													<p class="disc">
+														ワードプレスを使用しカスタマイズ。<br />
+														レスポンシブ対応。
+													</p>
+												</figcaption>
+											</figure>
+										</div>
+										<p class="url"><a href="https://atcv.jp/" target="_blank"><span>ATTRACTIVE</span></a></p>
+									</li>
+
+									<li class="animated" data-scroll="toggle(.fadeInUp, .invisible)">
+										<div class="my-gallery">
+											<figure>
+												<a href="./assets/images/pre/column.jpg" class="imageBlock" data-size="1432x7001">
+													<span><img src="./assets/images/column.jpg" alt="美容向けポータルサイト" /></span>
+												</a>
+												<figcaption>
+													<h3><span>美容向けポータルサイト Onerank コラム</span></h3>
+													<p class="disc">
+														Onerank・StyleStockの連携を想定した美容系のキュレーションサイト<br />
+														ワードプレスを使用しカスタマイズ。<br />
+														レスポンシブ対応。<br />
+														開発期間：約1か月
+													</p>
+												</figcaption>
+											</figure>
+										</div>
+										<p class="url"><a href="https://column.one-rank.jp/" target="_blank"><span>Onerank Column</span></a></p>
+									</li>
+								</ul>
+							</dd>
+						</dl>
+					</li>
+
+					<li>
+						<dl>
+							<dt>
+								<span>
+									<span class="eng">Diamond CO., LTD.</span>
+									<span class="name">
+										<span>株式会社</span>
+										<span>ダイヤモンドブログ</span>
+									</span>
+								</span>
+							</dt>
+
+							<dd>
+								<ul>
+									<li class="animated" data-scroll="toggle(.fadeInUp, .invisible)">
+										<div class="my-gallery">
+											<figure>
+												<a href="./assets/images/pre/diamondblog.jpg" class="imageBlock" data-size="1432x3752">
+													<span><img src="./assets/images/diamondblog.jpg" alt="芸能人ブログ専門サイト" /></span>
+												</a>
+												<figcaption>
+													<h3><span>芸能人ブログ専門サイト</span></h3>
+													<p class="disc">
+														ワードプレスを使用した芸能人ブログ専門サイト。<br />
+														ブログ表示は基本的にテンプレートを使用したもので、タレントによっては独自のテーマを作成。<br />
+														ポータル側のリニューアルをマークアップ
+													</p>
+												</figcaption>
+											</figure>
+										</div>
+										<p class="url"><a href="http://www.diamondblog.jp/" target="_blank"><span>Diamond Blog</span></a></p>
+									</li>
+
+									<li class="animated" data-scroll="toggle(.fadeInUp, .invisible)">
+										<div class="my-gallery">
+											<figure>
+												<a href="./assets/images/pre/nihonshokuken.jpg" class="imageBlock" data-size="1432x1278">
+													<span><img src="./assets/images/nihonshokuken.jpg" alt="日本食研オフィシャルサイト" /></span>
+												</a>
+												<figcaption>
+													<h3><span>日本食研オフィシャルサイト</span></h3>
+													<p class="disc">
+														日本食研の更新・リニューアルなどを担当。<br />
+														Eccube2系・ムーバブルタイプを使用。
+													</p>
+												</figcaption>
+											</figure>
+										</div>
+										<p class="url"><a href="http://www.nihonshokken.co.jp/" target="_blank"><span>日本食研</span></a></p>
+									</li>
+
+									<li class="animated" data-scroll="toggle(.fadeInUp, .invisible)">
+										<div class="my-gallery">
+											<figure>
+												<a href="./assets/images/pre/toko.jpg" class="imageBlock" data-size="1432x1682">
+													<span><img src="./assets/images/toko.jpg" alt="有楽町トコー スーツケース・旅行用品の専門店" /></span>
+												</a>
+
+												<figcaption>
+													<h3><span>有楽町トコー スーツケース・旅行用品の専門店サイト</span></h3>
+													<p class="disc">
+														Eccube2系・ムーバブルタイプを使用。<br />
+														楽天ショップの作成も担当。
+													</p>
+												</figcaption>
+											</figure>
+										</div>
+										<p class="url"><a href="https://yurakucho-toko.co.jp/" target="_blank"><span>有楽町トコー</span></a></p>
+									</li>
+								</ul>
+							</dd>
+						</dl>
+					</li>
+				</ul>
+			</div>
+		</article>
+
+		<article class="containerArticle" id="Resume">
+			<div class="comContents">
+				<h2 class="animated" data-scroll="toggle(.matrix, .invisible)">
+					<span>Resume</span><span>職務経歴</span>
+				</h2>
+
+				<ul class="resumeList">
+					<li data-co="Areus CO., LTD.">
+						<dl class="masterDl">
+							<dt>
+								<span class="name">株式会社アレス</span>
+								<span class="enrolled">2015年4月～2019年1月</span>
+							</dt>
+
+							<dd>
+								<p class="disp">
+									ベンチャー企業で入社当時は社員数が10名ほどでした。そのため技術者が少なく積極的に且つ広い範囲での仕事ができる環境でした。 <br />
+									美容系のつながりがある会社でしたのでCodeIgniterを利用してた美容系の商材の開発メンバー。<br />
+									またWordPressを利用したCMSパッケージの構築。 <br />
+									Lessを利用したレスポンシブサイト構築。<br /><br />
+
+									入社半年で課長職に就けるチャンスもいただき、現状では約50人規模の会社に貢献。
+								</p>
+
+								<dl>
+									<dt><span>所属</span></dt>
+									<dd><span>システム開発</span></dd>
+								</dl>
+
+								<dl>
+									<dt><span>メンバー数</span></dt>
+									<dd><span>6名</span></dd>
+								</dl>
+
+								<dl>
+									<dt><span>役職</span></dt>
+									<dd><span>課長</span></dd>
+								</dl>
+
+								<dl>
+									<dt><span>職務内容</span></dt>
+									<dd>
+										<ul>
+											<li><span>ワードプレスを利用したCMSパッケージ構築とCMSパッケージを利用したサイト制作 </span></li>
+											<li><span>ECサイトの制作</span></li>
+											<li><span>Lessを利用したサイト制作</span></li>
+											<li><span>CodeIgniter・Gitを使用したシステム開発メンバー。</span></li>
+										</ul>
+									</dd>
+								</dl>
+
+								<dl>
+									<dt><span>使用スキル</span></dt>
+									<dd><span>HTML・HTML5／Illustrator／Photoshop／Less／CSS・CSS3／軽度のPHP／Git／CodeIgniter </span></dd>
+								</dl>
+							</dd>
+						</dl>
+					</li>
+
+					<li data-co="Zentcreate CO., LTD.">
+						<dl class="masterDl">
+							<dt>
+								<span class="name">株式会社ゼントクリエート</span>
+								<span class="enrolled">2014年12月～2015年3月</span>
+							</dt>
+
+							<dd>
+								<p class="disp">
+									ECサイトの構築、バナー制作、WEB関係PC・スマートフォンサイトCSS3のコーディング。<br />
+									営業担当と社長との対立で営業者が退職し会社自体が運営できない状態になり退職。
+								</p>
+
+								<dl>
+									<dt><span>所属</span></dt>
+									<dd><span>マークアップエンジニア</span></dd>
+								</dl>
+
+								<dl>
+									<dt><span>メンバー数</span></dt>
+									<dd><span>6名</span></dd>
+								</dl>
+
+								<dl>
+									<dt><span>職務内容</span></dt>
+									<dd>
+										<ul>
+											<li><span>ココカラファイン更新業務・移行作業</span></li>
+											<li><span>スーパーホームサービスのデザイン構築</span></li>
+										</ul>
+									</dd>
+								</dl>
+
+								<dl>
+									<dt><span>使用スキル</span></dt>
+									<dd><span>HTML・HTML5／Illustrator／Photoshop／CSS・CSS3 </span></dd>
+								</dl>
+							</dd>
+						</dl>
+					</li>
+
+					<li data-co="Diamond CO., LTD.">
+						<dl class="masterDl">
+							<dt>
+								<span class="name">株式会社ダイヤモンドブログ</span>
+								<span class="enrolled">2014年12月～2015年3月</span>
+							</dt>
+
+							<dd>
+								<p class="disp">
+									ECサイトの構築、バナー制作、WEB関係PC・スマートフォンサイトCSS3のコーディング。<br />
+									自社ポータルサイト　芸能人ブログダイヤモンドブログの作成・更新業務。<br />
+									WEB関係PC・スマートフォンサイトCSS3のコーディング。<br />
+									フォトショップやイラストレーターを使ったデザイン、バナー制作。<br />
+									Wordpress,ECcube,Movable Typeを使ってのWEBコーディング作業。
+								</p>
+
+								<dl>
+									<dt><span>所属</span></dt>
+									<dd><span>マークアップエンジニア</span></dd>
+								</dl>
+
+								<dl>
+									<dt><span>メンバー数</span></dt>
+									<dd><span>10名</span></dd>
+								</dl>
+
+								<dl>
+									<dt><span>職務内容</span></dt>
+									<dd>
+										<ul>
+											<li><span>自社ブログポータルサイト　デザイン・構築</span></li>
+											<li><span>ブロガーのデザインと構築</span></li>
+											<li><span>日本食研や芸能人オフィシャルサイトなどの外注案件の構築</span></li>
+										</ul>
+									</dd>
+								</dl>
+
+								<dl>
+									<dt><span>使用スキル</span></dt>
+									<dd><span>HTML／Illustrator／Photoshop／Flash／CSS </span></dd>
+								</dl>
+							</dd>
+						</dl>
+					</li>
+				</ul>
+			</div>
+		</article>
+	</div>
+
+<!-- ライトボックス表示ブロック -->
+<script>
+  var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+    // parse slide data (url, title, size ...) from DOM elements
+    // (children of gallerySelector)
+    var parseThumbnailElements = function(el) {
+        var thumbElements = el.childNodes,
+            numNodes = thumbElements.length,
+            items = [],
+            figureEl,
+            linkEl,
+            size,
+            item;
+
+        for(var i = 0; i < numNodes; i++) {
+
+            figureEl = thumbElements[i]; // <figure> element
+
+            // include only element nodes
+            if(figureEl.nodeType !== 1) {
+                continue;
+            }
+
+            linkEl = figureEl.children[0]; // <a> element
+
+            size = linkEl.getAttribute('data-size').split('x');
+
+            // create slide object
+            item = {
+                src: linkEl.getAttribute('href'),
+                w: parseInt(size[0], 10),
+                h: parseInt(size[1], 10)
+            };
+
+
+
+            if(figureEl.children.length > 1) {
+                // <figcaption> content
+                item.title = figureEl.children[1].innerHTML;
+            }
+
+            if(linkEl.children.length > 0) {
+                // <img> thumbnail element, retrieving thumbnail url
+                item.msrc = linkEl.children[0].getAttribute('src');
+            }
+
+            item.el = figureEl; // save link to element for getThumbBoundsFn
+            items.push(item);
+        }
+
+        return items;
+    };
+
+    // find nearest parent element
+    var closest = function closest(el, fn) {
+        return el && ( fn(el) ? el : closest(el.parentNode, fn) );
+    };
+
+    // triggers when user clicks on thumbnail
+    var onThumbnailsClick = function(e) {
+        e = e || window.event;
+        e.preventDefault ? e.preventDefault() : e.returnValue = false;
+
+        var eTarget = e.target || e.srcElement;
+
+        // find root element of slide
+        var clickedListItem = closest(eTarget, function(el) {
+            return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+        });
+
+        if(!clickedListItem) {
+            return;
+        }
+
+        // find index of clicked item by looping through all child nodes
+        // alternatively, you may define index via data- attribute
+        var clickedGallery = clickedListItem.parentNode,
+            childNodes = clickedListItem.parentNode.childNodes,
+            numChildNodes = childNodes.length,
+            nodeIndex = 0,
+            index;
+
+        for (var i = 0; i < numChildNodes; i++) {
+            if(childNodes[i].nodeType !== 1) {
+                continue;
+            }
+
+            if(childNodes[i] === clickedListItem) {
+                index = nodeIndex;
+                break;
+            }
+            nodeIndex++;
+        }
+
+
+
+        if(index >= 0) {
+            // open PhotoSwipe if valid index found
+            openPhotoSwipe( index, clickedGallery );
+        }
+        return false;
+    };
+
+    // parse picture index and gallery index from URL (#&pid=1&gid=2)
+    var photoswipeParseHash = function() {
+        var hash = window.location.hash.substring(1),
+        params = {};
+
+        if(hash.length < 5) {
+            return params;
+        }
+
+        var vars = hash.split('&');
+        for (var i = 0; i < vars.length; i++) {
+            if(!vars[i]) {
+                continue;
+            }
+            var pair = vars[i].split('=');
+            if(pair.length < 2) {
+                continue;
+            }
+            params[pair[0]] = pair[1];
+        }
+
+        if(params.gid) {
+            params.gid = parseInt(params.gid, 10);
+        }
+
+        if(!params.hasOwnProperty('pid')) {
+            return params;
+        }
+        params.pid = parseInt(params.pid, 10);
+        return params;
+    };
+
+    var openPhotoSwipe = function(index, galleryElement, disableAnimation) {
+        var pswpElement = document.querySelectorAll('.pswp')[0],
+            gallery,
+            options,
+            items;
+
+        items = parseThumbnailElements(galleryElement);
+
+        // define options (if needed)
+        options = {
+            index: index,
+            zoomEl: true,
+            shareEl: false,
+
+            // define gallery index (for URL)
+            galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+            getThumbBoundsFn: function(index) {
+                // See Options -> getThumbBoundsFn section of documentation for more info
+                var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                    pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                    rect = thumbnail.getBoundingClientRect();
+
+                return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+            }
+
+        };
+
+        if(disableAnimation) {
+            options.showAnimationDuration = 0;
+        }
+
+        // Pass data to PhotoSwipe and initialize it
+        gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.init();
+    };
+
+    // loop through all gallery elements and bind events
+    var galleryElements = document.querySelectorAll( gallerySelector );
+
+    for(var i = 0, l = galleryElements.length; i < l; i++) {
+        galleryElements[i].setAttribute('data-pswp-uid', i+1);
+        galleryElements[i].onclick = onThumbnailsClick;
+    }
+
+    // Parse URL and open gallery if it contains #&pid=3&gid=1
+    var hashData = photoswipeParseHash();
+    if(hashData.pid > 0 && hashData.gid > 0) {
+        openPhotoSwipe( hashData.pid - 1 ,  galleryElements[ hashData.gid - 1 ], true );
+    }
+};
+
+// execute above function
+
+window.onload = function(){
+  initPhotoSwipeFromDOM(".my-gallery");
+}
+
+</script>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="pswp__bg"></div>
+
+	<div class="pswp__scroll-wrap">
+		<div class="pswp__container">
+			<div class="pswp__item"></div>
+			<div class="pswp__item"></div>
+			<div class="pswp__item"></div>
+		</div>
+
+		<div class="pswp__ui pswp__ui--hidden">
+			<div class="pswp__top-bar">
+				<div class="pswp__counter"></div>
+				<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+				<button class="pswp__button pswp__button--share" title="Share"></button>
+				<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+				<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+				<div class="pswp__preloader">
+					<div class="pswp__preloader__icn">
+						<div class="pswp__preloader__cut">
+							<div class="pswp__preloader__donut"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+				<div class="pswp__share-tooltip"></div>
+			</div>
+
+			<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+			<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+			<div class="pswp__caption">
+				<div class="pswp__caption__center"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

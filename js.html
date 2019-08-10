@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js no-svg">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="山崎 塁 ポートフォリオ JavaScript 習得までの軌跡" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-title" content="山崎 塁 ポートフォリオ JavaScript 習得までの軌跡">
+	<meta name='robots' content='noindex,follow' />
+
+	<link href="https://fonts.googleapis.com/css?family=Aleo|Lora|Noto+Sans|Nunito|Montserrat" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+
+	<script src="./assets/js/headroom/Headroom.js"></script>
+	<script src="./assets/js/headroom/jQuery.headroom.js"></script>
+	<script>
+		$(window).on('scroll', function() {
+			$('header').addClass(' scrollUp');
+			$('header').headroom({
+				"tolerance": 0,
+				"offset": $('header').outerHeight(),
+				"classes": {
+					"initial": "animatedFix",
+					"pinned": "scrollUp",
+					"unpinned": "scrollDown",
+					"top": "headroom--top",
+					"notTop": "headroom--not-top-scroll"
+				}
+			});
+		});
+	</script>
+
+	<!-- scrollアニメーション -->
+	<link href="./assets/js/ScrollTrigger/animate.css" rel="stylesheet" type="text/css" />
+	<script src="./assets/js/ScrollTrigger/ScrollTrigger.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function(){
+			var trigger = new ScrollTrigger({
+				offset: {
+					x: 0,
+					y: -300
+				},
+				addHeight: true,
+				once: true
+			}, document.body, window);
+		});
+	</script>
+	<title>A Trajectory For Purpose JavaScript 習得までの軌跡</title>
+</head>
+
+<body class="home">
+	<header>
+		<article>
+			<h1><a href="https://ry009.github.io/port/"><span>A Trajectory For Purpose</span></a></h1>
+			<nav class="globalNavi">
+				<ul>
+					<li><a href="./#Biography"><span data-Hover="自己紹介">Biography</span></a></li>
+					<li><a href="./#Creation"><span data-Hover="製作実績">Creation</span></a></li>
+					<li><a href="./#Resume"><span data-Hover="職務経歴">Resume</span></a></li>
+					<li><a href="./js"><span data-Hover="カリキュラム">JS Curriculum</span></a></li>
+					<li><a href="./ReactTodoApp"><span data-Hover="React Todo">React Todo</span></a></li>
+				</ul>
+			</nav>
+		</article>
+	</header>
+
+	<div id="wrap">
+		<article class="containerArticle" id="Biography">
+			<div class="comContents">
+				<h2 class="animated matrix">
+					<span>Biography</span><span>JavaScriptを習得までの軌跡</span>
+				</h2>
+
+				<div class="biographyList">
+					<p class="text">
+						開発者になるために目下勉強中。。。<br>
+						カリキュラムの中から実践した内容をまとめてみました。
+					</p>
+				</div>
+			</div>
+		</article>
+
+		<article class="containerArticle" id="Creation">
+			<div class="comContents">
+				<h2 class="animated" data-scroll="toggle(.matrix, .invisible)">
+					<span>Creation</span><span>おみくじゲーム</span>
+				</h2>
+
+				<p class="description">
+					クリックして内容が変わるおみくじ<br>
+					初めて動きをつけたJSの実践でした。<br>
+					JSのコードをカリキュラムの内容とは別にできる限りコンパクトにしてみました。
+				</p>
+
+				<div class="contentDiv">
+					<div class="drawContainer">
+						<div id="draw"></div>
+					</div>
+				</div>
+
+				<h2 class="animated" data-scroll="toggle(.matrix, .invisible)">
+					<span>Creation</span><span>タイマーゲーム</span>
+				</h2>
+
+				<p class="description">
+					Startを押してから5秒の誤差1秒以内でクリアーとなるちょっとしたゲーム。<br>
+					実際のカリキュラム内容では「リセット」はついていない内容だったので、簡単なのですがつけてみました。
+				</p>
+
+				<div class="contentDiv">
+					<div class="timeContainer">
+						<div id="target">5.000</div>
+						<div id="result" class="standby">0.000</div>
+						<div class="buttons">
+							<div id="start">Start</div>
+							<div id="stop">Stop</div>
+							<div id="reset">Reset</div>
+						</div>
+					</div>
+				</div>
+
+				<h2 class="animated" data-scroll="toggle(.matrix, .invisible)">
+					<span>Creation</span><span>割り勘電卓</span>
+				</h2>
+
+				<p class="description">
+
+				</p>
+
+				<div class="contentDiv">
+					<div class="cashier">
+						<div class="inputArea">
+							<input type="text" id="price" placeholder="金額"/>
+							<input type="text" id="num" placeholder="人数"/>
+
+							<div id="cashierBtn" class="disadled">Cashier</div>
+						</div>
+						<div class="resulrArea">
+							<textarea id="resultText" placeholder="結果表示はここに出ます"></textarea>
+							<div id="resetCashier">Reset</div>
+						</div>
+					</div>
+				</div>
+
+				<h2 class="animated" data-scroll="toggle(.matrix, .invisible)">
+					<span>Creation</span><span>パスワード生成</span>
+				</h2>
+
+				<p class="description">
+
+				</p>
+
+				<div class="contentDiv">
+					<div class="passGenerator">
+						<div class="inputPassArea">
+							<input type="text" id="resultPass"/>
+						</div>
+						<div class="btnPass"><p>Generator Password</p></div>
+						<fieldset>
+							<legend>Options</legend>
+							<p class="length">Length（<span class="lengthLabel"></span>）:
+								<input type="range" id="range" value="11" min="4" max="20"/></p>
+							<p>
+								<label for="numbers">
+									<input type="checkbox" id="numbers" name="numbers"/>
+									<span>Numbers?</span>
+								</label>
+								<label for="symbols">
+									<input type="checkbox" id="symbols" name="symbols"/>
+									<span>Symbols?</span>
+								</label>
+							</p>
+						</fieldset>
+					</div>
+				</div>
+
+				<h2 class="animated" data-scroll="toggle(.matrix, .invisible)">
+					<span>Creation</span><span>カウントダウンタイマー</span>
+				</h2>
+
+				<p class="description">
+
+				</p>
+
+				<div class="contentDiv">
+					<div class="timerContainer">
+						<div id="timer">00:00.000</div>
+						<div class="controls">
+							<div id="min" class="timerBtn">Min</div>
+							<div id="sec" class="timerBtn">Sec</div>
+							<div id="resetTimer" class="timerBtn">Reset</div>
+							<div id="startTimer" class="timerBtn">Start</div>
+						</div>
+					</div>
+				</div>
+
+				<h2 class="animated" data-scroll="toggle(.matrix, .invisible)">
+					<span>Creation</span><span>ストップウォッチ</span>
+				</h2>
+
+				<p class="description">
+
+				</p>
+
+				<div class="contentDiv">
+					<div class="stopwatchContainer">
+						<div id="timerWatch">00:00.000</div>
+						<div class="buttons">
+							<button id="startWatch">Start</button>
+							<button id="stopWatch">Stop</button>
+							<button id="resetWatch">Reset</button>
+						</div>
+					</div>
+				</div>
+
+				<h2 class="animated" data-scroll="toggle(.matrix, .invisible)">
+					<span>Creation</span><span>スロットゲーム</span>
+				</h2>
+
+				<p class="description">
+
+				</p>
+
+				<div class="contentDiv">
+					<div class="slotContainer">
+						<div class="panelWrap"></div>
+						<div id="spin">SPIN</div>
+					</div>
+				</div>
+
+				<h2 class="animated" data-scroll="toggle(.matrix, .invisible)">
+					<span>Creation</span><span>スライダーJS</span>
+				</h2>
+
+				<p class="description">
+
+				</p>
+
+				<div class="contentDiv">
+					<div class="sliderContainer">
+						<main></main>
+
+						<nav class="btnNavi">
+							<ul>
+								<li id="play">Play</li>
+								<li id="prev">&lt;</li>
+								<li id="next">&gt;</li>
+							</ul>
+						</nav>
+						<ul class="thumbnails"></ul>
+					</div>
+				</div>
+			</div>
+		</article>
+
+	</div>
+<script src="./assets/js/game.js"></script>
+
+</body>
+</html>

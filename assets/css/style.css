@@ -138,18 +138,28 @@ blockquote, q {
 		filter: blur(0); } }
 @-webkit-keyframes hue {
 	from {
-		transform: matrix(0, 0.7, 1.5, 0, 0, 0);
 		filter: hue-rotate(0deg); }
 	to {
-		transform: matrix(1, 0, 0, 1, 0, 0);
-		filter: hue-rotate(-360deg); } }
+		filter: hue-rotate(-180deg); } }
 @keyframes hue {
 	from {
-		transform: matrix(0, 0.7, 1.5, 0, 0, 0);
 		filter: hue-rotate(0deg); }
 	to {
-		transform: matrix(1, 0, 0, 1, 0, 0);
-		filter: hue-rotate(-360deg); } }
+		filter: hue-rotate(-180deg); } }
+@-webkit-keyframes hueColor {
+	0% {
+		background-position: 14% 0; }
+	50% {
+		background-position: 87% 100%; }
+	100% {
+		background-position: 14% 0; } }
+@keyframes hueColor {
+	0% {
+		background-position: 14% 0; }
+	50% {
+		background-position: 87% 100%; }
+	100% {
+		background-position: 14% 0; } }
 @-webkit-keyframes matrix {
 	0% {
 		transform: matrix(0, 0.7, 1.5, 0, 0, 0);
@@ -170,25 +180,44 @@ blockquote, q {
 			display: inline-block;
 			margin: 0 0 40px;}
 			#wrap .containerArticle h2.matrix {
-				color: #0095ff;
-				-webkit-animation: blur 2s linear 0s 1, hue 40s linear 2s infinite, matrix 0.3s linear 0s 1;
-				animation: blur 2s linear 0s 1, hue 40s linear 2s infinite, matrix 0.3s linear 0s 1;
-				-webkit-animation-fill-mode: both;
-				animation-fill-mode: both;}
-			#wrap .containerArticle h2 span {
+				color: #fff;}
+			#wrap .containerArticle h2 > span {
 				display: inline-block;
-				width: 100%;}
-				#wrap .containerArticle h2 span:first-of-type {
+				width: 100%;
+				position: relative;}
+				#wrap .containerArticle h2 > span > span {
+					opacity: 0;
+					font-size: 0;}
+				#wrap .containerArticle h2 > span:first-of-type {
 					margin-bottom: 10px;
 					letter-spacing: -0.2rem;
 					font-size: 5.4rem;
 					font-family: futura-pt-condensed, sans-serif;
 					font-weight: 800;
 					font-style: italic;}
-				#wrap .containerArticle h2 span:last-of-type {
+					#wrap .containerArticle h2 > span:first-of-type::before {
+						content: attr(data-h21);}
+				#wrap .containerArticle h2 > span:last-of-type {
 					font-size: 1.6rem;
 					font-weight: bold;
 					font-style: italic;}
+					#wrap .containerArticle h2 > span:last-of-type::before {
+						content: attr(data-h22);}
+				#wrap .containerArticle h2 > span::before {
+					-webkit-animation: hueColor 25s cubic-bezier(0.445, 0.05, 0.55, 0.95) alternate infinite;
+					animation: hueColor 25s cubic-bezier(0.445, 0.05, 0.55, 0.95) alternate infinite;
+					-webkit-animation-fill-mode: both;
+					animation-fill-mode: both;
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+					background-size: 300% 300%;
+					-webkit-text-fill-color: transparent;
+					-webkit-background-clip: text;
+					top: 0;
+					left: 0;
+					right: 0;}
 		#wrap .containerArticle .description {
 			font-size: 1.4rem;
 			line-height: 2.2em;

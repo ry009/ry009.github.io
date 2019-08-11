@@ -312,15 +312,20 @@ blockquote, q {
 
 		@include keyframes(hue) {
 			from {
-				transform: matrix(0, 0.7, 1.5, 0, 0, 0);
 				filter: hue-rotate(0deg);
 			}
 
 			to {
-				transform: matrix(1, 0, 0, 1, 0, 0);
-				filter: hue-rotate(-360deg);
+				filter: hue-rotate(-180deg);
 			}
 		};
+		
+		@include keyframes(hueColor) {
+			0%{background-position:14% 0}
+			50%{background-position:87% 100%}
+			100%{background-position:14% 0}
+		};
+		
 
 		@include keyframes(matrix) {
 			0% {
@@ -341,13 +346,18 @@ blockquote, q {
 			margin: 0 0 40px;
 
 			&.matrix {
-				color: $mainColor;
-				@include animation((blur 2s linear 0s 1, hue 40s linear 2s infinite, matrix 0.3s linear 0s 1));
+				color: #fff;
 			}
 
-			span {
+			& > span {
 				display: inline-block;
 				width: 100%;
+				position: relative;
+				
+				& > span {
+					opacity: 0;
+					font-size: 0;
+				}
 
 				&:first-of-type {
 					margin-bottom: 10px;
@@ -356,12 +366,34 @@ blockquote, q {
 					font-family: $futura;
 					font-weight: 800;
 					font-style: italic;
+					
+					&::before {
+						content: attr(data-h21);
+					}
 				}
 
 				&:last-of-type {
 					font-size: 1.6rem;
 					font-weight: bold;
 					font-style: italic;
+					
+					&::before {
+						content: attr(data-h22);
+					}
+				}
+				
+				&::before {
+					@include animation((hueColor 25s cubic-bezier(.445,.05,.55,.95) alternate infinite));
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					background: linear-gradient(60deg,#f79533,#f37055,#ef4e7b,#a166ab,#5073b8,#1098ad,#07b39b,#6fba82);
+					background-size: 300% 300%;
+					-webkit-text-fill-color: transparent;
+					-webkit-background-clip: text;
+					top: 0;
+					left: 0;
+					right: 0;
 				}
 			}
 		}

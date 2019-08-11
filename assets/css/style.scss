@@ -347,6 +347,7 @@ blockquote, q {
 
 			&.matrix {
 				color: #fff;
+				@include animation((blur 2s linear 0s 1, hue 60s linear 2s infinite, matrix 0.3s linear 0s 1));
 			}
 
 			& > span {

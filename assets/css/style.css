@@ -180,7 +180,11 @@ blockquote, q {
 			display: inline-block;
 			margin: 0 0 40px;}
 			#wrap .containerArticle h2.matrix {
-				color: #fff;}
+				color: #fff;
+				-webkit-animation: blur 2s linear 0s 1, hue 60s linear 2s infinite, matrix 0.3s linear 0s 1;
+				animation: blur 2s linear 0s 1, hue 60s linear 2s infinite, matrix 0.3s linear 0s 1;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;}
 			#wrap .containerArticle h2 > span {
 				display: inline-block;
 				width: 100%;

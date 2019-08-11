@@ -100,23 +100,23 @@ $(function () {
 	function mask(canvas) {
 		maskSet(canvas);
 	}
-	function mask02(canvas) {
-		maskSet(canvas);
-	}
-	function mask03(canvas) {
-		maskSet(canvas);
-	}
-	function mask04(canvas) {
-		maskSet(canvas);
-	}
-	function mask05(canvas) {
-		maskSet(canvas);
-	}
+	// function mask02(canvas) {
+	// 	maskSet(canvas);
+	// }
+	// function mask03(canvas) {
+	// 	maskSet(canvas);
+	// }
+	// function mask04(canvas) {
+	// 	maskSet(canvas);
+	// }
+	// function mask05(canvas) {
+	// 	maskSet(canvas);
+	// }
 	$(window).on('load resize', function () {
 		mask(document.getElementById('canvasMask01'));
-		mask02(document.getElementById('canvasMask02'));
-		mask03(document.getElementById('canvasMask03'));
-		mask04(document.getElementById('canvasMask04'));
-		mask05(document.getElementById('canvasMask05'));
+		// mask02(document.getElementById('canvasMask02'));
+		// mask03(document.getElementById('canvasMask03'));
+		// mask04(document.getElementById('canvasMask04'));
+		// mask05(document.getElementById('canvasMask05'));
 	});
 });

@@ -25,31 +25,3 @@ $(function () {
 		});
 	}
 });
-
-$(function () {
-	var allImg = $("img");
-	var $divMain = $('<div>', { class: 'loading lStart' });
-	var $divBg = $('<div>', { class: 'loadingBg' });
-	var $divLoading = $('<div>', { class: 'loadingNum' });
-	var $widthW = $(window).width();
-	var $heightW = $(window).height();
-	var span = '';
-	var randomNum = '';
-	var current;
-
-	var spanNum = 40;
-	for (var i = 1; i <= spanNum; i++) {
-		span = $('<span>', { class: 'loadingSpan' + i });
-		// console.log(randomNum);
-		$divBg.append(span);
-	}
-	$divMain.append($divLoading);
-	$divMain.append($divBg);
-	$('body').prepend($divMain);
-
-	// $('.loading').removeClass('lStart');
-	// $('#wrap').fadeIn("slow");
-	// $('.loading').fadeOut(2500).queue(function () {
-	// 	this.remove();
-	// });
-});

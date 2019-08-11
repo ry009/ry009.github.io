@@ -47,11 +47,11 @@ $(function () {
 	$divMain.append($divBg);
 	$('body').prepend($divMain);
 
-	window.onload = function () {
+	$(window).on("load", function () {
 		$('.loading').removeClass('lStart');
 		$('#wrap').fadeIn("slow");
 		$('.loading').fadeOut(2500).queue(function () {
 			this.remove();
 		});
-	};
+	});
 });

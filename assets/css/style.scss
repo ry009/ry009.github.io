@@ -1708,11 +1708,46 @@ header {
 	width: 100%;
 	height: 100%;
 	z-index: 2000;
+	
+	&::before {
+		content: "";
+		width: 100%;
+		height: 100%;
+		opacity: 0.8;
+		display: block;
+		@include transition(background 0.5s ease-in-out);
+	}
+
+	&.lStart::before {
+		background: #000;
+	}
+
+	.loadingNum {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 101;
+		color: #fff;
+	}
+	.loadingBg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 100;
+	}
 
 	%spanBase {
 		display: block;
 		background: #000;
-		opacity: 0.3;
+		opacity: 0.2;
 		position: absolute;
 		z-index: 2001;
 		@include transition(all 0.5s ease-in-out);

@@ -28,17 +28,29 @@ $(function () {
 
 $(function () {
 	var allImg = $("img");
-	var $div = $('<div>', { class: 'loading' });
+	var $divMain = $('<div>', { class: 'loading lStart' });
+	var $divBg = $('<div>', { class: 'loadingBg' });
+	var $divLoading = $('<div>', { class: 'loadingNum' });
 	var $widthW = $(window).width();
 	var $heightW = $(window).height();
 	var span = '';
 	var randomNum = '';
+	var current;
 
 	var spanNum = 40;
 	for (var i = 1; i <= spanNum; i++) {
 		span = $('<span>', { class: 'loadingSpan' + i });
 		// console.log(randomNum);
-		$div.append(span);
+		$divBg.append(span);
 	}
-	$('body').prepend($div);
+	$divMain.append($divLoading);
+	$divMain.append($divBg);
+	$('body').prepend($divMain);
+
+	$(window).on("load", function () {
+		$('.loading').removeClass('lStart');
+		$('.loading').fadeOut(2500).queue(function () {
+			this.remove();
+		});
+	});
 });

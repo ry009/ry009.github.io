@@ -1347,10 +1347,39 @@ header {
 	width: 100%;
 	height: 100%;
 	z-index: 2000;}
+	.loading::before {
+		content: "";
+		width: 100%;
+		height: 100%;
+		opacity: 0.8;
+		display: block;
+		-webkit-transition: background 0.5s ease-in-out;
+		transition: background 0.5s ease-in-out;}
+	.loading.lStart::before {
+		background: #000;}
+	.loading .loadingNum {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 101;
+		color: #fff;}
+	.loading .loadingBg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 100;}
 	.loading .loadingSpan1, .loading .loadingSpan2, .loading .loadingSpan3, .loading .loadingSpan4, .loading .loadingSpan5, .loading .loadingSpan6, .loading .loadingSpan7, .loading .loadingSpan8, .loading .loadingSpan9, .loading .loadingSpan10, .loading .loadingSpan11, .loading .loadingSpan12, .loading .loadingSpan13, .loading .loadingSpan14, .loading .loadingSpan15, .loading .loadingSpan16, .loading .loadingSpan17, .loading .loadingSpan18, .loading .loadingSpan19, .loading .loadingSpan20, .loading .loadingSpan21, .loading .loadingSpan22, .loading .loadingSpan23, .loading .loadingSpan24, .loading .loadingSpan25, .loading .loadingSpan26, .loading .loadingSpan27, .loading .loadingSpan28, .loading .loadingSpan29, .loading .loadingSpan30, .loading .loadingSpan31, .loading .loadingSpan32, .loading .loadingSpan33, .loading .loadingSpan34, .loading .loadingSpan35, .loading .loadingSpan36, .loading .loadingSpan37, .loading .loadingSpan38, .loading .loadingSpan39, .loading .loadingSpan40 {
 		display: block;
 		background: #000;
-		opacity: 0.3;
+		opacity: 0.2;
 		position: absolute;
 		z-index: 2001;
 		-webkit-transition: all 0.5s ease-in-out;

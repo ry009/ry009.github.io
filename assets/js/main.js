@@ -47,10 +47,10 @@ $(function () {
 	$divMain.append($divBg);
 	$('body').prepend($divMain);
 
-	$(window).on("load", function () {
+	window.onload = function () {
 		$('.loading').removeClass('lStart');
 		$('.loading').fadeOut(2500).queue(function () {
 			this.remove();
 		});
-	});
+	};
 });

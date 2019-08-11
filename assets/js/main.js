@@ -47,11 +47,9 @@ $(function () {
 	$divMain.append($divBg);
 	$('body').prepend($divMain);
 
-	$(window).on("load", function () {
-		$('.loading').removeClass('lStart');
-		$('#wrap').fadeIn("slow");
-		$('.loading').fadeOut(2500).queue(function () {
-			this.remove();
-		});
+	$('.loading').removeClass('lStart');
+	$('#wrap').fadeIn("slow");
+	$('.loading').fadeOut(2500).queue(function () {
+		this.remove();
 	});
 });

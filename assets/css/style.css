@@ -1180,7 +1180,6 @@ blockquote, q {
 
 header {
 	padding: 10px 0;
-	background: rgba(80, 118, 151, 0.7);
 	width: 100%;
 	-webkit-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
@@ -1205,16 +1204,17 @@ header {
 		flex-flow: row wrap;
 		align-items: flex-start;}
 		header article h1 {
-			font-family: "Nunito", sans-serif;
-			font-size: 2.4rem;
+			font-family: futura-pt-condensed, sans-serif;
+			font-size: 2rem;
 			color: #fff;
 			font-weight: bold;
 			width: 280px;
-			margin: 0;}
+			margin: 0;
+			letter-spacing: 0rem;}
 			header article h1 a {
 				color: #fff;}
 		header article nav.globalNavi {
-			font-family: "Noto Sans", sans-serif;
+			font-family: futura-pt-condensed, sans-serif;
 			font-size: 1.4rem;
 			color: #fff;
 			width: calc(100% - 280px);

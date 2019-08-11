@@ -25,3 +25,20 @@ $(function () {
 		});
 	}
 });
+
+$(function () {
+	var allImg = $("img");
+	var $div = $('<div>', { class: 'loading' });
+	var $widthW = $(window).width();
+	var $heightW = $(window).height();
+	var span = '';
+	var randomNum = '';
+
+	var spanNum = 40;
+	for (var i = 1; i <= spanNum; i++) {
+		span = $('<span>', { class: 'loadingSpan' + i });
+		// console.log(randomNum);
+		$div.append(span);
+	}
+	$('body').prepend($div);
+});

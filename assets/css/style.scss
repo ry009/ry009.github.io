@@ -1670,3 +1670,280 @@ header {
 	@include figcaptionSets;
 }
 
+@include keyframes(translateX01) {
+	0%{
+		transform: translateX(0%);
+	}
+	100%{
+		transform: translateX(110%);
+	}
+};
+@include keyframes(translateX02) {
+	0%{
+		transform: translateX(0%);
+	}
+	100%{
+		transform: translateX(-110%);
+	}
+};
+@include keyframes(translateY01) {
+	0%{
+		transform: translateY(0);
+	}
+	100%{
+		transform: translateY(110%);
+	}
+};
+@include keyframes(translateY02) {
+	0%{
+		transform: translateY(0);
+	}
+	100%{
+		transform: translateY(-110%);
+	}
+};
+
+.loading {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 2000;
+
+	%spanBase {
+		display: block;
+		background: #000;
+		opacity: 0.3;
+		position: absolute;
+		z-index: 2001;
+		@include transition(all 0.5s ease-in-out);
+	}
+	
+	%spanOdd {
+		width: 100%;
+		// height: 10%;
+	}
+	%spanEven {
+		// width: 10%;
+		height: 100%;
+	}
+	
+	@for $i from 1 through 40 {
+		@if $i == 1 or $i == 3 or $i == 5 or $i == 7 or $i == 9 or $i == 11 or $i == 13 or $i == 15 or $i == 17 or $i == 19 or $i == 21 or $i == 23 or $i == 25 or $i == 27 or $i == 29 or $i == 31 or $i == 33 or $i == 35 or $i == 37 or $i == 39 {
+			.loadingSpan#{$i} {
+				@extend %spanBase;
+				@extend %spanOdd;
+				
+				@if $i == 1 {
+					top: 0;
+					height: 10%;
+					@include animation((translateX01 0.5s linear 0s 1 forwards));
+				}
+				@if $i == 3 {
+					top: 8%;
+					height: 17%;
+					@include animation((translateX01 0.5s linear 1s 1 forwards));
+				}
+				@if $i == 5 {
+					top: 24%;
+					height: 5%;
+					@include animation((translateX01 0.5s linear 0.5s 1 forwards));
+				}
+				@if $i == 7 {
+					top: 30%;
+					height: 15%;
+					@include animation((translateX01 0.5s linear 0.8s 1 forwards));
+				}
+				@if $i == 9 {
+					top: 41%;
+					height: 12%;
+					@include animation((translateX01 0.5s linear 0.3s 1 forwards));
+				}
+				@if $i == 11 {
+					top: 50%;
+					height: 1%;
+					@include animation((translateX01 0.5s linear 0s 1 forwards));
+				}
+				@if $i == 13 {
+					top: 48%;
+					height: 20%;
+					@include animation((translateX01 0.5s linear 0.2s 1 forwards));
+				}
+				@if $i == 15 {
+					top: 62%;
+					height: 3%;
+					@include animation((translateX01 0.5s linear 0.6s 1 forwards));
+				}
+				@if $i == 17 {
+					top: 67%;
+					height: 15%;
+					@include animation((translateX01 0.5s linear 0.9s 1 forwards));
+				}
+				@if $i == 19 {
+					top: 81%;
+					height: 21%;
+					@include animation((translateX01 0.5s linear 0.3s 1 forwards));
+				}
+				
+				@if $i == 21 {
+					bottom: 0;
+					height: 4%;
+					@include animation((translateX02 0.5s linear 0.1s 1 forwards));
+				}
+				@if $i == 23 {
+					bottom: 2%;
+					height: 23%;
+					@include animation((translateX02 0.5s linear 0.8s 1 forwards));
+				}
+				@if $i == 25 {
+					bottom: 22%;
+					height: 13%;
+					@include animation((translateX02 0.5s linear 0.3s 1 forwards));
+				}
+				@if $i == 27 {
+					bottom: 30%;
+					height: 26%;
+					@include animation((translateX02 0.5s linear 0.7s 1 forwards));
+				}
+				@if $i == 29 {
+					bottom: 40%;
+					height: 10%;
+					@include animation((translateX02 0.5s linear 0.4s 1 forwards));
+				}
+				@if $i == 31 {
+					bottom: 50%;
+					height: 2%;
+					@include animation((translateX02 0.5s linear 0s 1 forwards));
+				}
+				@if $i == 33 {
+					bottom: 60%;
+					height: 20%;
+					@include animation((translateX02 0.5s linear 0.5s 1 forwards));
+				}
+				@if $i == 35 {
+					bottom: 73%;
+					height: 14%;
+					@include animation((translateX02 0.5s linear 0.9s 1 forwards));
+				}
+				@if $i == 37 {
+					bottom: 76%;
+					height: 30%;
+					@include animation((translateX02 0.5s linear 0.7s 1 forwards));
+				}
+				@if $i == 39 {
+					bottom: 90%;
+					height: 10%;
+					@include animation((translateX02 0.5s linear 0.3s 1 forwards));
+				}
+			}
+		} @else {
+			.loadingSpan#{$i} {
+				@extend %spanBase;
+				@extend %spanEven;
+
+				@if $i == 2 {
+					left: 0%;
+					width: 10%;
+					@include animation((translateY01 0.5s linear 0.5s 1));
+				}
+				@if $i == 4 {
+					left: 9%;
+					width: 22%;
+					@include animation((translateY01 0.5s linear 0.3s 1));
+				}
+				@if $i == 6 {
+					left: 20%;
+					width: 30%;
+					@include animation((translateY01 0.5s linear 1s 1));
+				}
+				@if $i == 8 {
+					left: 38%;
+					width: 5%;
+					@include animation((translateY01 0.5s linear 0.6s 1));
+				}
+				@if $i == 10 {
+					left: 40%;
+					width: 12%;
+					@include animation((translateY01 0.5s linear 0.9s 1));
+				}
+				
+				@if $i == 12 {
+					left: 50%;
+					width: 6%;
+					@include animation((translateY01 0.5s linear 0s 1));
+				}
+				@if $i == 14 {
+					left: 55%;
+					width: 13%;
+					@include animation((translateY01 0.5s linear 0s 1));
+				}
+				@if $i == 16 {
+					left: 60%;
+					width: 5%;
+					@include animation((translateY01 0.5s linear 0.5s 1));
+				}
+				@if $i == 18 {
+					left: 58%;
+					width: 16%;
+					@include animation((translateY01 0.5s linear 1s 1));
+				}
+				@if $i == 20 {
+					left: 90%;
+					width: 10%;
+					@include animation((translateY01 0.5s linear 0.7s 1));
+				}
+
+				@if $i == 22 {
+					right: 11%;
+					width: 1%;
+					@include animation((translateY02 0.5s linear 0s 1));
+				}
+				@if $i == 24 {
+					right: 9%;
+					width: 10%;
+					@include animation((translateY02 0.5s linear 0.9s 1));
+				}
+				@if $i == 26 {
+					right: 18%;
+					width: 13%;
+					@include animation((translateY02 0.5s linear 0.5s 1));
+				}
+				@if $i == 28 {
+					right: 42.3%;
+					width: 13%;
+					@include animation((translateY02 0.5s linear 1s 1));
+				}
+				@if $i == 30 {
+					right: 55%;
+					width: 10%;
+					@include animation((translateY02 0.5s linear 0.7s 1));
+				}
+				@if $i == 32 {
+					right: 58%;
+					width: 5%;
+					@include animation((translateY02 0.5s linear 0.3s 1));
+				}
+				@if $i == 34 {
+					right: 66%;
+					width: 21%;
+					@include animation((translateY02 0.5s linear 0.6s 1));
+				}
+				@if $i == 36 {
+					right: 78%;
+					width: 5%;
+					@include animation((translateY02 0.5s linear 0.2s 1));
+				}
+				@if $i == 38 {
+					right: 85%;
+					width: 10%;
+					@include animation((translateY02 0.5s linear 1s 1));
+				}
+				@if $i == 40 {
+					right: 90%;
+					width: 10%;
+					@include animation((translateY02 0.5s linear 0.7s 1));
+				}
+			}
+		}
+	}
+}
+

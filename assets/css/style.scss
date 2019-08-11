@@ -291,7 +291,6 @@ blockquote, q {
 	position: relative;
 	overflow: hidden;
 	padding: 0px 0 0;
-	// display: none;
 	
 	.containerArticle {
 		width: 100%;
@@ -1709,19 +1708,6 @@ header {
 	width: 100%;
 	height: 100%;
 	z-index: 2000;
-	
-	&::before {
-		content: "";
-		width: 100%;
-		height: 100%;
-		opacity: 0.8;
-		display: block;
-		@include transition(background 0.5s ease-in-out);
-	}
-
-	&.lStart::before {
-		background: #000;
-	}
 
 	.loadingNum {
 		position: absolute;
@@ -1756,10 +1742,8 @@ header {
 	
 	%spanOdd {
 		width: 100%;
-		// height: 10%;
 	}
 	%spanEven {
-		// width: 10%;
 		height: 100%;
 	}
 	

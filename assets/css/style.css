@@ -49,21 +49,10 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	font-smoothing: antialiased;
 	z-index: 0;
-	overflow: visible;}
-	body::before {
-		content: "";
-		position: fixed;
-		width: 100%;
-		height: auto;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: -1;
-		opacity: 1;
-		background: url(../images/bg2.jpg) no-repeat center center;
-		background-attachment: fixed;
-		background-size: cover;}
+	overflow: visible;
+	background: url(../images/bg2.jpg) no-repeat center center;
+	background-attachment: fixed;
+	background-size: cover;}
 
 img {
 	vertical-align: top;
@@ -1205,7 +1194,7 @@ header {
 		align-items: flex-start;}
 		header article h1 {
 			font-family: futura-pt-condensed, sans-serif;
-			font-size: 2rem;
+			font-size: 1.8rem;
 			color: #fff;
 			font-weight: bold;
 			width: 280px;

@@ -120,7 +120,8 @@ blockquote, q {
 #wrap {
 	position: relative;
 	overflow: hidden;
-	padding: 0px 0 0;}
+	padding: 0px 0 0;
+	display: none;}
 	#wrap .containerArticle {
 		width: 100%;
 		margin: 0 auto;}

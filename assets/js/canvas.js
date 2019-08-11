@@ -1,5 +1,4 @@
 'use strict';
-$(function () {
 	function maskSet(canvas) {
 		var canvas = canvas;
 		var boxWidth = $('.canvasBlock').width();
@@ -119,4 +118,3 @@ $(function () {
 		// mask04(document.getElementById('canvasMask04'));
 		// mask05(document.getElementById('canvasMask05'));
 	});
-});

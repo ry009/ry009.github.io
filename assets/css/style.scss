@@ -1713,12 +1713,21 @@ header {
 		transform: translateY(-110%);
 	}
 };
+@include keyframes(fadeBG) {
+	0%{
+		background: #fff;
+	}
+	100%{
+		background: none;
+	}
+};
 
 .loading {
 	position: fixed;
 	width: 100%;
 	height: 100%;
 	z-index: 2000;
+	@include animation((fadeBG 0.2s linear 0s 1 forwards));
 
 	.loadingNum {
 		position: absolute;
@@ -1744,7 +1753,7 @@ header {
 
 	%spanBase {
 		display: block;
-		background: #000;
+		background: #fff;
 		opacity: 0.2;
 		position: absolute;
 		z-index: 2001;

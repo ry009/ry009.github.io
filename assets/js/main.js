@@ -26,27 +26,27 @@ $(function () {
 	}
 });
 // ページ読み込み中にローディング画面
-$(function () {
-	var h = $(window).height(); // ブラウザウィンドウの高さを取得
-	var $divMain = $('<div>', { class: 'loading lStart' });
-	var $divBg = $('<div>', { class: 'loadingBg' });
-	var $divLoading = $('<div>', { class: 'loadingNum' });
-	// $('.loader').height(h); // ウィンドウの高さに合わせでローディング画面を表示
-	var span = '';
-	var spanNum = 40;
-	for (var i = 1; i <= spanNum; i++) {
-		span = $('<span>', { class: 'loadingSpan' + i });
-		// console.log(randomNum);
-		$divBg.append(span);
-	}
-	$divMain.append($divLoading);
-	$divMain.append($divBg);
-	$('body').prepend($divMain);
-});
+// $(function () {
+// 	var h = $(window).height(); // ブラウザウィンドウの高さを取得
+// 	var $divMain = $('<div>', { class: 'loading lStart' });
+// 	var $divBg = $('<div>', { class: 'loadingBg' });
+// 	var $divLoading = $('<div>', { class: 'loadingNum' });
+// 	// $('.loader').height(h); // ウィンドウの高さに合わせでローディング画面を表示
+// 	var span = '';
+// 	var spanNum = 40;
+// 	for (var i = 1; i <= spanNum; i++) {
+// 		span = $('<span>', { class: 'loadingSpan' + i });
+// 		// console.log(randomNum);
+// 		$divBg.append(span);
+// 	}
+// 	$divMain.append($divLoading);
+// 	$divMain.append($divBg);
+// 	$('body').prepend($divMain);
+// });
 
-$(window).on('load', function () {
-	$('#wrap').fadeIn("slow");
-	$('.loading').delay(700).fadeOut(2500).queue(function () {
-		this.remove();
-	});
-});
+// $(window).on('load', function () {
+// 	$('#wrap').fadeIn("slow");
+// 	$('.loading').delay(700).fadeOut(2500).queue(function () {
+// 		this.remove();
+// 	});
+// });

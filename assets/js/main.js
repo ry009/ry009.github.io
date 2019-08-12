@@ -28,7 +28,7 @@ $(function () {
 // ページ読み込み中にローディング画面
 $(function () {
 	var h = $(window).height(); // ブラウザウィンドウの高さを取得
-	var $divMain = $('<div>', { class: 'loading lStart' });
+	var $divMain = $('.loading');
 	var $divBg = $('<div>', { class: 'loadingBg' });
 	var $divLoading = $('<div>', { class: 'loadingNum' });
 	// $('.loader').height(h); // ウィンドウの高さに合わせでローディング画面を表示
@@ -47,8 +47,8 @@ $(function () {
 
 $(window).on('load', function () {
 	$('#wrap').fadeIn("slow");
-	$divMain.addClass("overr");
-	$divMain.delay(700).fadeOut(2500, function () {
-		$divMain.remove();
+	$('.loading').addClass("over");
+	$('.loading').delay(700).fadeOut(2500, function () {
+		$('.loading').remove();
 	});
 });

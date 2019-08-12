@@ -203,7 +203,16 @@ body {
 	font-smoothing: antialiased;
 	z-index: 0;
 	overflow: visible;
-	background: #000;
+	
+	&.bgNone {
+		background: #000;
+	}
+
+	&:not(.bgNone) {
+		background: #000 url(../images/bg4.jpg) no-repeat center center;
+		background-attachment: fixed;
+		background-size: cover;
+	}
 }
 
 img {
@@ -289,10 +298,7 @@ blockquote, q {
 	position: relative;
 	overflow: hidden;
 	padding: 0px 0 0;
-	// display: none;
-	background: #000 url(../images/bg4.jpg) no-repeat center center;
-	background-attachment: fixed;
-	background-size: cover;
+	display: none;
 
 	.containerArticle {
 		width: 100%;

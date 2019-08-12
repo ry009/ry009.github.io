@@ -49,10 +49,13 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	font-smoothing: antialiased;
 	z-index: 0;
-	overflow: visible;
-	background: #000 url(../images/bg4.jpg) no-repeat center center;
-	background-attachment: fixed;
-	background-size: cover;}
+	overflow: visible;}
+	body.bgNone {
+		background: #000;}
+	body:not(.bgNone) {
+		background: #000 url(../images/bg4.jpg) no-repeat center center;
+		background-attachment: fixed;
+		background-size: cover;}
 
 img {
 	vertical-align: top;
@@ -120,7 +123,8 @@ blockquote, q {
 #wrap {
 	position: relative;
 	overflow: hidden;
-	padding: 0px 0 0;}
+	padding: 0px 0 0;
+	display: none;}
 	#wrap .containerArticle {
 		width: 100%;
 		margin: 0 auto;}

@@ -294,11 +294,13 @@ blockquote, q {
 	}
 }
 
+body.home #wrrap {
+	display: none;
+}
 #wrap {
 	position: relative;
 	overflow: hidden;
 	padding: 0px 0 0;
-	display: none;
 
 	.containerArticle {
 		width: 100%;

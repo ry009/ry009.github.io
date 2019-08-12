@@ -50,7 +50,9 @@ body {
 	font-smoothing: antialiased;
 	z-index: 0;
 	overflow: visible;
-	background: #000;}
+	background: #000 url(../images/bg4.jpg) no-repeat center center;
+	background-attachment: fixed;
+	background-size: cover;}
 
 img {
 	vertical-align: top;
@@ -118,10 +120,7 @@ blockquote, q {
 #wrap {
 	position: relative;
 	overflow: hidden;
-	padding: 0px 0 0;
-	background: #000 url(../images/bg4.jpg) no-repeat center center;
-	background-attachment: fixed;
-	background-size: cover;}
+	padding: 0px 0 0;}
 	#wrap .containerArticle {
 		width: 100%;
 		margin: 0 auto;}

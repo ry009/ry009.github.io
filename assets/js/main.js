@@ -45,6 +45,7 @@ $(function () {
 });
 
 $(window).on('load', function () {
+	$('#wrap').fadeIn("slow");
 	$('.loading').delay(700).fadeOut(2500).queue(function () {
 		this.remove();
 	});

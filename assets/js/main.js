@@ -43,11 +43,12 @@ $(function () {
 	$divMain.append($divBg);
 	$('body').removeClass('bgNone').prepend($divMain);
 
-	$(window).on('load', function () {
-		$('#wrap').fadeIn("slow");
-		$divMain.addClass("overr");
-		$divMain.delay(700).fadeOut(2500, function () {
-			$divMain.remove();
-		});
+});
+
+$(window).on('load', function () {
+	$('#wrap').fadeIn("slow");
+	$divMain.addClass("overr");
+	$divMain.delay(700).fadeOut(2500, function () {
+		$divMain.remove();
 	});
 });

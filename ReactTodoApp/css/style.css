@@ -111,6 +111,7 @@ input[type="text"]  {
 	margin: 0px 0px;
 	padding: 5px;
 	border: 2px solid #b8b8b8;
+	color: #fff;
 }
 
 input[type="submit"]  {

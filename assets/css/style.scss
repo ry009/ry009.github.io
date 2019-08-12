@@ -203,9 +203,16 @@ body {
 	font-smoothing: antialiased;
 	z-index: 0;
 	overflow: visible;
-	background: #000 url(../images/bg4.jpg) no-repeat center center;
-	background-attachment: fixed;
-	background-size: cover;
+	
+	&.bgNone {
+		background: #000;
+	}
+
+	&:not(.bgNone) {
+		background: #000 url(../images/bg4.jpg) no-repeat center center;
+		background-attachment: fixed;
+		background-size: cover;
+	}
 }
 
 img {

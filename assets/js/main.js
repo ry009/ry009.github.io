@@ -41,10 +41,11 @@ $(function () {
 	}
 	$divMain.append($divLoading);
 	$divMain.append($divBg);
-	$('body').prepend($divMain);
+	$('body').addClass('bgNone').prepend($divMain);
 });
 
 $(window).on('load', function () {
+	$('body').removeClass('bgNone');
 	$('#wrap').fadeIn("slow");
 	$('.loading').delay(700).fadeOut(2500).queue(function () {
 		this.remove();

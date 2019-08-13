@@ -1,5 +1,6 @@
 /*!
- * @file ScrollMagic GSAP Animation Plugin.
+ 
+* @file ScrollMagic GSAP Animation Plugin.
  *
  * requires: GSAP ~1.14
  * Powered by the Greensock Animation Platform (GSAP): http://www.greensock.com/js

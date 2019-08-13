@@ -27,7 +27,7 @@ $(function () {
 });
 
 $(function () {
-	let controller = new ScrollMagic.Controller();
+	var controller = new ScrollMagic.Controller();
 	var twMatrixSets = $('.twMatrix');
 	for (var i = 1; i <= twMatrixSets.length; i++) {
 		var twMatrixName = 'twMatrix0' + i;

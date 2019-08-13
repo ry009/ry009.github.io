@@ -1979,31 +1979,41 @@ header {
 }
 
 .test {
-a {
-    color: white;
-    position: relative;
-    text-decoration: none;
-    text-align: center;
-    display: block;
-    z-index: 100;
-    padding: 10px;
-    width: 200px;
-  border: 1px solid #fff;
-  margin: 0 auto;
+	a {
+		color: white;
+		position: relative;
+		text-decoration: none;
+		text-align: center;
+		display: block;
+		z-index: 100;
+		padding: 10px;
+		width: 200px;
+		border: 1px solid #fff;
+		margin: 0 auto;
+	}
+
+	span{
+		display: inline-block;
+	}
+
+	#bgc01{
+		z-index: -1;
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0%;
+		height: 100%;
+		background-color: white;
+	}
 }
 
-span{
-    display: inline-block;
-}
 
-#bgc01{
-    z-index: -1;
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background-color: white;
-}
+#canvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 10;
 }

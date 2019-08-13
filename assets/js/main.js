@@ -25,6 +25,35 @@ $(function () {
 		});
 	}
 });
+
+$(function () {
+	let controller = new ScrollMagic.Controller();
+	var twMatrixSets = $('.twMatrix');
+	for (var i = 1; i <= twMatrixSets.length; i++) {
+		var twMatrixName = 'twMatrix0' + i;
+		TweenMax.set('.' + twMatrixName, {
+			skewY: 0.7, skewX: 1.5, scaleX: 0, scaleY: 0, y: -50,
+			rotation: 180,
+			rotationX: 360,
+			rotationY: 360,
+		});
+
+		new ScrollMagic.Scene({ triggerElement: '.' + twMatrixName, triggerHook: 'onEnter' })
+			.setTween('.' + twMatrixName, 2, {
+				scaleX: 1,
+				skewY: 0,
+				skewX: 0,
+				scaleY: 1,
+				y: 0,
+				rotation: 0,
+				rotationX: 0,
+				rotationY: 0,
+				ease: Back.easeOut,
+			})
+			.addTo(controller);
+	}
+});
+
 // ページ読み込み中にローディング画面
 $(function () {
 	var h = $(window).height(); // ブラウザウィンドウの高さを取得

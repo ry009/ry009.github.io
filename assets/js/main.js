@@ -52,6 +52,66 @@ $(function () {
 			})
 			.addTo(controller);
 	}
+
+	var twUl01Sets = $('.twUl01 li');
+	TweenMax.set('.twUl01 li', {
+		y: "100%",
+		opacity: 0,
+	});
+	for (var i = 1; i <= twUl01Sets.length; i++) {
+		var twfade01 = 'twFade10' + i;
+
+		new ScrollMagic.Scene({ triggerElement: '.' + twfade01, offset: -250, triggerHook: 'onEnter' })
+			.setTween('.' + twfade01, 2, {
+				y: "0%",
+				opacity: 1,
+				ease: Bounce.easeOut,
+			}).setClassToggle('.' + twfade01, "active")
+			.addTo(controller);
+	}
+
+	var twUl02Sets = $('.twUl02 li');
+	TweenMax.set('.twUl02 li', {
+		y: "100%",
+		opacity: 0,
+	});
+	for (var i = 1; i <= twUl02Sets.length; i++) {
+		var twfade02 = 'twFade20' + i;
+
+		new ScrollMagic.Scene({ triggerElement: '.' + twfade02, offset: -250, triggerHook: 'onEnter' })
+			.setTween('.' + twfade02, 2, {
+				y: "0%",
+				opacity: 1,
+				ease: Bounce.easeOut,
+			}).setClassToggle('.' + twfade02, "active")
+			.addTo(controller);
+	}
+
+	var animationCompSets = $('.animationComp');
+	for (var i = 1; i <= twUl02Sets.length; i++) {
+		var animationComp = 'animationComp0' + i;
+
+		var text = '.' + animationComp;
+		var $textplit = $(text).text().split("");
+		$(text).children().addBack().contents().each(function () {
+			if (this.nodeType == 3) {
+				$(this).replaceWith($(this).text().replace(/(\S)/g, '<span>$1</span>'));
+			}
+		});
+		TweenMax.set('.' + animationComp + ' span', {
+			y: -200,
+			opacity: 0,
+		});
+		var animationCompSpan = TweenMax.staggerTo('.' + animationComp + ' span', 2, {
+			y: 0,
+			opacity: 1,
+			delay: 0.8,
+			ease: Bounce.easeOut,
+		}, 0.1);
+		new ScrollMagic.Scene({ triggerElement: '.' + animationComp, offset: 0, triggerHook: 'onEnter' })
+			.setTween(animationCompSpan)
+			.addTo(controller);
+	}
 });
 
 // ページ読み込み中にローディング画面

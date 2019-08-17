@@ -14,45 +14,8 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
 
-	<script src="https://ry009.github.io/assets/js/headroom/Headroom.js"></script>
-	<script src="https://ry009.github.io/assets/js/headroom/jQuery.headroom.js"></script>
-	<script>
-		$(window).on('scroll', function () {
-			$('header').addClass(' scrollUp');
-			$('header').headroom({
-				"tolerance": 0,
-				"offset": $('header').outerHeight(),
-				"classes": {
-					"initial": "animatedFix",
-					"pinned": "scrollUp",
-					"unpinned": "scrollDown",
-					"top": "headroom--top",
-					"notTop": "headroom--not-top-scroll"
-				}
-			});
-		});
-	</script>
-
 	<!-- scrollアニメーション -->
 	<link href="https://ry009.github.io/assets/js/ScrollTrigger/animate.css" rel="stylesheet" type="text/css" />
-	<script src="https://ry009.github.io/assets/js/ScrollTrigger/ScrollTrigger.js"></script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			var trigger = new ScrollTrigger({
-				offset: {
-					x: 0,
-					y: -300
-				},
-				addHeight: true,
-				once: true
-			}, document.body, window);
-		});
-	</script>
-
-
-	<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 </head>
 
 <body class="react">
@@ -76,173 +39,210 @@
 			<div id="root"></div>
 		</article>
 	</div>
-	<script type="text/babel">
-	'use strict';
-	(() => {
-		function TodosH1Func(props) {
-			const todosTotal = props.todosListProps.length;
-			const todosRemaining = props.todosListProps.filter(single => {
+
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<script type="text/babel">
+'use strict';
+(() => {
+	function TodosH1Func(props) {
+		const todosTotal = props.todosListProps.length;
+		const todosRemaining = props.todosListProps.filter(single => {
+			return !single.isDone;
+		});
+		return(
+			<h2 className="twMatrix twMatrix01">
+				<span data-h21="My Todos"><span>My Todos</span></span>
+				<span className="count" data-h22=''>({todosRemaining.length}/{todosTotal})</span>
+			</h2>
+		);
+	}
+
+	function TodosItemFunc(props) {
+		return (
+			<li>
+				<label>
+					<input type="checkbox" checked={props.todosItemProps.isDone}
+					onChange={() => props.onChangeCheckSets(props.todosItemProps)}/>
+					<span>{props.todosItemProps.title}</span>
+				</label>
+				<span className="close" onClick={() => props.onClickDelete(props.todosItemProps)}>[x]</span>
+			</li>
+		);
+	}
+
+	function TodosListFunc(props) {
+		const todoslist = props.todosListProps.map(single => {
+			return (
+				<TodosItemFunc key={single.id} todosItemProps={single}
+					onChangeCheckSets={props.onChangeCheckSets} onClickDelete={props.onClickDelete}/>);
+		});
+		const todosEmpty = <li className="empry">Nothing to do!</li>;
+		return (
+			<ul className="todosUl">
+				{props.todosListProps.length ? todoslist : todosEmpty}
+			</ul>
+		);
+	}
+
+	function TodosAddFunc(props) {
+		return (
+			<form onSubmit={props.onAddSets}>
+				<input type="text" value={props.addValue} onChange={props.onChangeInputSets} />
+				<input type="submit" value="Add Todos"/>
+			</form>
+		);
+	}
+
+	function getUniqueID() {
+		return new Date().getTime().toString(10) + '-' + Math.random().toString(10);
+	}
+
+	function TodosPurgeFunc(props) {
+		return (
+			<div className="purge">
+				<button onClick={props.onClickPurge}>Check Purge</button>
+			</div>
+		);
+	}
+
+	class App extends React.Component {
+		constructor() {
+			super();
+			this.state = {
+				todosBase: [],
+				addValue: ''
+			}
+			this.onChangeCheckSets = this.onChangeCheckSets.bind(this);
+			this.onClickDelete = this.onClickDelete.bind(this);
+			this.onChangeInputSets = this.onChangeInputSets.bind(this);
+			this.onAddSets = this.onAddSets.bind(this);
+			this.onClickPurge = this.onClickPurge.bind(this);
+		}
+
+		onClickPurge() {
+			const todosIsDone = this.state.todosBase.filter(single => {
+				return single.isDone;
+			});
+			if(!todosIsDone.length || !confirm('Are You Sure?')) {return}
+			const todosClone = this.state.todosBase.filter(single => {
 				return !single.isDone;
 			});
-			return(
-				<h2 className="twMatrix twMatrix01">
-					<span data-h21="My Todos"><span>My Todos</span></span>
-					<span className="count" data-h22=''>({todosRemaining.length}/{todosTotal})</span>
-				</h2>
-			);
-		}
-
-		function TodosItemFunc(props) {
-			return (
-				<li>
-					<label>
-						<input type="checkbox" checked={props.todosItemProps.isDone}
-						onChange={() => props.onChangeCheckSets(props.todosItemProps)}/>
-						<span>{props.todosItemProps.title}</span>
-					</label>
-					<span className="close" onClick={() => props.onClickDelete(props.todosItemProps)}>[x]</span>
-				</li>
-			);
-		}
-
-		function TodosListFunc(props) {
-			const todoslist = props.todosListProps.map(single => {
-				return (
-					<TodosItemFunc key={single.id} todosItemProps={single}
-						onChangeCheckSets={props.onChangeCheckSets} onClickDelete={props.onClickDelete}/>);
+			this.setState({
+				todosBase: todosClone
 			});
-			const todosEmpty = <li className="empry">Nothing to do!</li>;
-			return (
-				<ul className="todosUl">
-					{props.todosListProps.length ? todoslist : todosEmpty}
-				</ul>
-			);
 		}
 
-		function TodosAddFunc(props) {
-			return (
-				<form onSubmit={props.onAddSets}>
-					<input type="text" value={props.addValue} onChange={props.onChangeInputSets} />
-					<input type="submit" value="Add Todos"/>
-				</form>
-			);
+		onChangeCheckSets(todosArg) {
+			const todosClone = this.state.todosBase.map(single => {
+				return (
+					{id: single.id, title: single.title, isDone: single.isDone}
+				);
+			});
+			const pos = this.state.todosBase.map(single => {
+				return single.id;
+			}).indexOf(todosArg.id);
+
+			todosClone[pos].isDone = !todosClone[pos].isDone;
+			this.setState({
+				todosBase: todosClone
+			});
 		}
 
-		function getUniqueID() {
-			return new Date().getTime().toString(10) + '-' + Math.random().toString(10);
+		onClickDelete(todosArg) {
+			if(!confirm('Are You Sure?')) {return;}
+			const todosClone = this.state.todosBase.slice();
+			const pos = this.state.todosBase.indexOf(todosArg);
+			todosClone.splice(pos, 1);
+			this.setState({
+				todosBase: todosClone
+			});
 		}
 
-		function TodosPurgeFunc(props) {
+		onChangeInputSets(e) {
+			this.setState({
+				addValue: e.target.value
+			});
+		}
+
+		onAddSets(e) {
+			e.preventDefault();
+			if(this.state.addValue.trim() === '') {return;}
+			const todosClone = this.state.todosBase.slice();
+			const itemDate = {id: getUniqueID(), title: this.state.addValue, isDone: false};
+			todosClone.push(itemDate);
+			this.setState({
+				todosBase: todosClone,
+				addValue: ''
+			});
+		}
+
+		componentDidUpdate() {
+			localStorage.setItem('todos', JSON.stringify(this.state.todosBase));
+		}
+		componentDidMount() {
+			this.setState({
+				todosBase: JSON.parse(localStorage.getItem('todos')) || []
+			});
+		}
+
+		render() {
 			return (
-				<div className="purge">
-					<button onClick={props.onClickPurge}>Check Purge</button>
+				<div className="container">
+					<TodosH1Func todosListProps={this.state.todosBase}/>
+					<div className="contentbody">
+						<TodosListFunc todosListProps={this.state.todosBase}
+						onChangeCheckSets={this.onChangeCheckSets} onClickDelete={this.onClickDelete}/>
+						{this.state.todosBase.length !== 0 && (<TodosPurgeFunc  onClickPurge={this.onClickPurge}/>)}
+					</div>
+					<div className="contentbody">
+						<TodosAddFunc todosListProps={this.state.todosBase} addValue={this.state.addValue}
+						onChangeInputSets={this.onChangeInputSets} onAddSets={this.onAddSets}/>
+					</div>
 				</div>
 			);
 		}
+	}
+	ReactDOM.render(
+		<App/>,
+		document.getElementById('root')
+	);
+})();
+</script>
 
-		class App extends React.Component {
-			constructor() {
-				super();
-				this.state = {
-					todosBase: [],
-					addValue: ''
+	<script src="https://ry009.github.io/assets/js/headroom/Headroom.js"></script>
+	<script src="https://ry009.github.io/assets/js/headroom/jQuery.headroom.js"></script>
+	<script>
+		$(window).on('scroll', function () {
+			$('header').addClass(' scrollUp');
+			$('header').headroom({
+				"tolerance": 0,
+				"offset": $('header').outerHeight(),
+				"classes": {
+					"initial": "animatedFix",
+					"pinned": "scrollUp",
+					"unpinned": "scrollDown",
+					"top": "headroom--top",
+					"notTop": "headroom--not-top-scroll"
 				}
-				this.onChangeCheckSets = this.onChangeCheckSets.bind(this);
-				this.onClickDelete = this.onClickDelete.bind(this);
-				this.onChangeInputSets = this.onChangeInputSets.bind(this);
-				this.onAddSets = this.onAddSets.bind(this);
-				this.onClickPurge = this.onClickPurge.bind(this);
-			}
-
-			onClickPurge() {
-				const todosIsDone = this.state.todosBase.filter(single => {
-					return single.isDone;
-				});
-				if(!todosIsDone.length || !confirm('Are You Sure?')) {return}
-				const todosClone = this.state.todosBase.filter(single => {
-					return !single.isDone;
-				});
-				this.setState({
-					todosBase: todosClone
-				});
-			}
-
-			onChangeCheckSets(todosArg) {
-				const todosClone = this.state.todosBase.map(single => {
-					return (
-						{id: single.id, title: single.title, isDone: single.isDone}
-					);
-				});
-				const pos = this.state.todosBase.map(single => {
-					return single.id;
-				}).indexOf(todosArg.id);
-
-				todosClone[pos].isDone = !todosClone[pos].isDone;
-				this.setState({
-					todosBase: todosClone
-				});
-			}
-
-			onClickDelete(todosArg) {
-				if(!confirm('Are You Sure?')) {return;}
-				const todosClone = this.state.todosBase.slice();
-				const pos = this.state.todosBase.indexOf(todosArg);
-				todosClone.splice(pos, 1);
-				this.setState({
-					todosBase: todosClone
-				});
-			}
-
-			onChangeInputSets(e) {
-				this.setState({
-					addValue: e.target.value
-				});
-			}
-
-			onAddSets(e) {
-				e.preventDefault();
-				if(this.state.addValue.trim() === '') {return;}
-				const todosClone = this.state.todosBase.slice();
-				const itemDate = {id: getUniqueID(), title: this.state.addValue, isDone: false};
-				todosClone.push(itemDate);
-				this.setState({
-					todosBase: todosClone,
-					addValue: ''
-				});
-			}
-
-			componentDidUpdate() {
-				localStorage.setItem('todos', JSON.stringify(this.state.todosBase));
-			}
-			componentDidMount() {
-				this.setState({
-					todosBase: JSON.parse(localStorage.getItem('todos')) || []
-				});
-			}
-
-			render() {
-				return (
-					<div className="container">
-						<TodosH1Func todosListProps={this.state.todosBase}/>
-						<div className="contentbody">
-							<TodosListFunc todosListProps={this.state.todosBase}
-							onChangeCheckSets={this.onChangeCheckSets} onClickDelete={this.onClickDelete}/>
-							{this.state.todosBase.length !== 0 && (<TodosPurgeFunc  onClickPurge={this.onClickPurge}/>)}
-						</div>
-						<div className="contentbody">
-							<TodosAddFunc todosListProps={this.state.todosBase} addValue={this.state.addValue}
-							onChangeInputSets={this.onChangeInputSets} onAddSets={this.onAddSets}/>
-						</div>
-					</div>
-				);
-			}
-		}
-		ReactDOM.render(
-			<App/>,
-			document.getElementById('root')
-		);
-	})();
+			});
+		});
 	</script>
-</body>
+	
+	<script src="https://ry009.github.io/assets/js/ScrollTrigger/ScrollTrigger.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var trigger = new ScrollTrigger({
+				offset: {
+					x: 0,
+					y: -300
+				},
+				addHeight: true,
+				once: true
+			}, document.body, window);
+		});
+	</script>
 
+</body>
 </html>

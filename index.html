@@ -15,121 +15,12 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
 	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-	<script src="./assets/js/animation.gsap.js"></script>
-	<script src="./assets/js/main.js"></script>
-
-	<script src="./assets/js/headroom/Headroom.js"></script>
-	<script src="./assets/js/headroom/jQuery.headroom.js"></script>
-	<script>
-		$(window).on('scroll', function() {
-			$('header').addClass(' scrollUp');
-			$('header').headroom({
-				"tolerance": 0,
-				"offset": $('header').outerHeight(),
-				"classes": {
-					"initial": "animatedFix",
-					"pinned": "scrollUp",
-					"unpinned": "scrollDown",
-					"top": "headroom--top",
-					"notTop": "headroom--not-top-scroll"
-				}
-			});
-		});
-	</script>
-
 	<!-- scrollアニメーション -->
 	<link href="./assets/js/ScrollTrigger/animate.css" rel="stylesheet" type="text/css" />
-	<script src="./assets/js/ScrollTrigger/ScrollTrigger.js"></script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function(){
-			var trigger = new ScrollTrigger({
-				offset: {
-					x: 0,
-					y: -300
-				},
-				addHeight: true,
-				once: true
-			}, document.body, window);
-		});
-	</script>
-
-	<script>
-		$(function() {
-			// スクロールのオフセット値
-			// ==================================================================================
-			var offsetY = 0;
-			if (window.matchMedia('(min-width: 769px)').matches) {
-				offsetY = -80;
-			} else if (window.matchMedia('(max-width: 768px)').matches) {
-				offsetY = 0;
-			}
-			// スクロールにかかる時間
-			var time = 500;
-
-			// ページ内リンクのみを取得
-			// ==================================================================================
-			$('.globalNavi ul li a[href^="#"]').on('click', function() {
-				// 移動先となる要素を取得
-				var target = $(this.hash);
-				if (!target.length) return ;
-				// 移動先となる値
-				var targetY = target.offset().top+offsetY;
-				// スクロールアニメーション
-				$('html,body').animate({scrollTop: targetY}, time, 'swing');
-				// アンカーリンク スムーズスクロール URLにIDが載らない ハッシュ書き換えとく
-				//window.history.pushState(null, null, this.hash);
-				// デフォルトの処理はキャンセル
-				return false;
-			});
-
-			// メニューのアンカーリンクカレント
-			// ==================================================================================
-			var margin = 100,   //ウインドウ上部からどれぐらいの位置で変化させるか
-			sectionTop = [], //sectionのTop位置格納用
-			current = -1;   //現在のカレント位置
-
-			//(1)各sectionの縦位置を取得
-			$('.containerArticle').each(function(i) {
-				sectionTop[i] = $(this).offset().top;
-			});
-
-			//init
-			changeNavCurrent(0);
-
-			//スクロールした時の処理
-			// ==================================================================================
-			$(window).scroll(function(){
-				scrollY = $(window).scrollTop();
-
-				//(2)各セクションの位置とスクロール位置を比較して、条件にあったらchangeNavCurrentを実行
-				for (var i = sectionTop.length - 1 ; i >= 0; i--) {
-					if (scrollY > sectionTop[i] - margin) {
-							changeNavCurrent(i);
-						break;
-					}
-				}
-			});
-
-			function changeNavCurrent(curNum) {
-				if (curNum != current) {
-					current = curNum;
-					curNum2 = curNum + 1;//HTML順序用
-					$('.globalNavi li a').removeClass('current');
-					$('.globalNavi li:nth-child(' + curNum2 +') a').addClass('current');
-				}
-			}
-		});
-	</script>
 
 	<!-- ライトボックス -->
 	<link href="./assets/js/photoswipe/photoswipe.css" rel="stylesheet" type="text/css" />
 	<link href="./assets/js/photoswipe/default-skin/default-skin.css" rel="stylesheet" type="text/css" />
-	<!-- ライトボックスJS -->
-	<script src="./assets/js/photoswipe/photoswipe.min.js"></script>
-	<script src="./assets/js/photoswipe/photoswipe-ui-default.js"></script>
 
 	<title>A Trajectory For Purpose</title>
 	<meta name='robots' content='noindex,follow' />
@@ -559,6 +450,115 @@
 			</div>
 		</article>
 	</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+<script src="./assets/js/animation.gsap.js"></script>
+<script src="./assets/js/main.js"></script>
+
+<script src="./assets/js/headroom/Headroom.js"></script>
+<script src="./assets/js/headroom/jQuery.headroom.js"></script>
+<script>
+	$(window).on('scroll', function () {
+		$('header').addClass(' scrollUp');
+		$('header').headroom({
+			"tolerance": 0,
+			"offset": $('header').outerHeight(),
+			"classes": {
+				"initial": "animatedFix",
+				"pinned": "scrollUp",
+				"unpinned": "scrollDown",
+				"top": "headroom--top",
+				"notTop": "headroom--not-top-scroll"
+			}
+		});
+	});
+</script>
+<script src="./assets/js/ScrollTrigger/ScrollTrigger.js"></script>
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		var trigger = new ScrollTrigger({
+			offset: {
+				x: 0,
+				y: -300
+			},
+			addHeight: true,
+			once: true
+		}, document.body, window);
+	});
+</script>
+
+<script>
+	$(function () {
+		// スクロールのオフセット値
+		// ==================================================================================
+		var offsetY = 0;
+		if (window.matchMedia('(min-width: 769px)').matches) {
+			offsetY = -80;
+		} else if (window.matchMedia('(max-width: 768px)').matches) {
+			offsetY = 0;
+		}
+		// スクロールにかかる時間
+		var time = 500;
+
+		// ページ内リンクのみを取得
+		// ==================================================================================
+		$('.globalNavi ul li a[href^="#"]').on('click', function () {
+			// 移動先となる要素を取得
+			var target = $(this.hash);
+			if (!target.length) return;
+			// 移動先となる値
+			var targetY = target.offset().top + offsetY;
+			// スクロールアニメーション
+			$('html,body').animate({ scrollTop: targetY }, time, 'swing');
+			// アンカーリンク スムーズスクロール URLにIDが載らない ハッシュ書き換えとく
+			//window.history.pushState(null, null, this.hash);
+			// デフォルトの処理はキャンセル
+			return false;
+		});
+
+		// メニューのアンカーリンクカレント
+		// ==================================================================================
+		var margin = 100,   //ウインドウ上部からどれぐらいの位置で変化させるか
+			sectionTop = [], //sectionのTop位置格納用
+			current = -1;   //現在のカレント位置
+
+		//(1)各sectionの縦位置を取得
+		$('.containerArticle').each(function (i) {
+			sectionTop[i] = $(this).offset().top;
+		});
+
+		//init
+		changeNavCurrent(0);
+
+		//スクロールした時の処理
+		// ==================================================================================
+		$(window).scroll(function () {
+			scrollY = $(window).scrollTop();
+
+			//(2)各セクションの位置とスクロール位置を比較して、条件にあったらchangeNavCurrentを実行
+			for (var i = sectionTop.length - 1; i >= 0; i--) {
+				if (scrollY > sectionTop[i] - margin) {
+					changeNavCurrent(i);
+					break;
+				}
+			}
+		});
+
+		function changeNavCurrent(curNum) {
+			if (curNum != current) {
+				current = curNum;
+				curNum2 = curNum + 1;//HTML順序用
+				$('.globalNavi li a').removeClass('current');
+				$('.globalNavi li:nth-child(' + curNum2 + ') a').addClass('current');
+			}
+		}
+	});
+</script>
+<!-- ライトボックスJS -->
+<script src="./assets/js/photoswipe/photoswipe.min.js"></script>
+<script src="./assets/js/photoswipe/photoswipe-ui-default.js"></script>
 
 <!-- ライトボックス表示ブロック -->
 <script>

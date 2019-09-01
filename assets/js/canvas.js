@@ -2,7 +2,7 @@
 function maskSet(canvas) {
 	var canvas = canvas;
 	var boxWidth = $('.canvasBlock').width();
-
+	
 	canvas.width = boxWidth;
 	canvas.height = boxWidth;
 	const img = canvas.children[0];

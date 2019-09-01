@@ -1143,7 +1143,7 @@ blockquote, q {
 						flex-flow: row wrap;
 						-webkit-align-items: center;
 						align-items: center;
-						margin: 100px auto;
+						margin: 0px auto;
 						font-weight: bold;
 						text-align: center;}
 					#wrap .containerArticle#Creation .comContents .contentDiv .hiLowContainer .dealer,

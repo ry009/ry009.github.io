@@ -1192,11 +1192,9 @@ blockquote, q {
 							-webkit-align-items: center;
 							align-items: center;}
 						#wrap .containerArticle#Creation .comContents .contentDiv .hiLowContainer .btnBlock .btn:hover {
-							margin-top: 2px;
 							box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);}
 						#wrap .containerArticle#Creation .comContents .contentDiv .hiLowContainer .btnBlock .btn.disabled {
 							opacity: 0.4;
-							margin-top: 2px;
 							box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);}
 					#wrap .containerArticle#Creation .comContents .contentDiv .hiLowContainer .card {
 						width: 50px;

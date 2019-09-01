@@ -148,7 +148,7 @@ $(window).on('load', function () {
 	var low = document.getElementById('lower');
 	var dealer = document.getElementById('dealer_card');
 	var player = document.getElementById('player_card');
-	var result = document.getElementById('result');
+	var resultCard = document.getElementById('resultCard');
 	var wrapper = document.getElementById('wrapper');
 	var replay = document.getElementById('replay');
 	var dealerVal, playerVal;
@@ -179,14 +179,14 @@ $(window).on('load', function () {
 	function checkResult(guess) {
 		if (wrapper.classList.contains('open')) { return; }
 		if (dealerVal === playerVal) {
-			result.innerHTML = 'Draw!';
+			resultCard.innerHTML = 'Draw!';
 		} else {
-			result.innerHTML = 'You ' + check(guess);
+			resultCard.innerHTML = 'You ' + check(guess);
 		}
 		wrapper.classList.add('open');
 		hi.classList.add('disabled');
 		low.classList.add('disabled');
-		result.classList.remove('hidden');
+		resultCard.classList.remove('hidden');
 		replay.classList.remove('hidden');
 	}
 	hi.addEventListener('click', function () {
@@ -198,7 +198,7 @@ $(window).on('load', function () {
 	update();
 	replay.addEventListener('click', function () {
 		wrapper.classList.remove('open');
-		result.classList.add('hidden');
+		resultCard.classList.add('hidden');
 		replay.classList.add('hidden');
 		hi.classList.remove('disabled');
 		low.classList.remove('disabled');

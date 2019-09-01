@@ -1129,7 +1129,8 @@ blockquote, q {
 						vertical-align: bottom;}
 				#wrap .containerArticle#Creation .comContents .contentDiv .hiLowContainer {
 					width: 500px;
-					margin: 0 auto;}
+					margin: 0 auto;
+					position: relative;}
 					#wrap .containerArticle#Creation .comContents .contentDiv .hiLowContainer .containerBlock {
 						width: 300px;
 						display: block;

@@ -141,3 +141,67 @@ $(window).on('load', function () {
 		$('.loading').remove();
 	});
 });
+
+(function () {
+	'use strict';
+	var hi = document.getElementById('higher');
+	var low = document.getElementById('lower');
+	var dealer = document.getElementById('dealer_card');
+	var player = document.getElementById('player_card');
+	var result = document.getElementById('result');
+	var wrapper = document.getElementById('wrapper');
+	var replay = document.getElementById('replay');
+	var dealerVal, playerVal;
+
+	function getRandom(min, max) {
+		return min + Math.floor(Math.random() * (max - min + 1));
+	}
+
+	function update() {
+		dealerVal = getRandom(1, 13);
+		dealer.innerHTML = dealerVal;
+		playerVal = getRandom(1, 13);
+		player.innerHTML = playerVal;
+		wrapper.removeEventListener('transitionend', update);
+	}
+
+	function check(guess) {
+		if (
+			dealerVal < playerVal && guess === 'higher' ||
+			dealerVal > playerVal && guess === 'lower'
+		) {
+			return 'Win!';
+		} else {
+			return 'Lose...';
+		}
+	}
+
+	function checkResult(guess) {
+		if (wrapper.classList.contains('open')) { return; }
+		if (dealerVal === playerVal) {
+			result.innerHTML = 'Draw!';
+		} else {
+			result.innerHTML = 'You ' + check(guess);
+		}
+		wrapper.classList.add('open');
+		hi.classList.add('disabled');
+		low.classList.add('disabled');
+		result.classList.remove('hidden');
+		replay.classList.remove('hidden');
+	}
+	hi.addEventListener('click', function () {
+		checkResult('higher');
+	});
+	low.addEventListener('click', function () {
+		checkResult('lower');
+	});
+	update();
+	replay.addEventListener('click', function () {
+		wrapper.classList.remove('open');
+		result.classList.add('hidden');
+		replay.classList.add('hidden');
+		hi.classList.remove('disabled');
+		low.classList.remove('disabled');
+		wrapper.addEventListener('transitionend', update);
+	});
+})();

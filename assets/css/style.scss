@@ -1520,31 +1520,45 @@ blockquote, q {
 							visibility: hidden;
 						}
 
-						.btn {
-							cursor: pointer;
-							width: 70px;
-							height: 70px;
-							border-radius: 50%;
-							background: green;
-							border: 5px solid #fff;
-							font-size: 14px;
-							color: #fff;
-							box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
-							line-height: 70px;
-							position: absolute;
-							/*100 - 40 = 60*/
-							left: 60px;
-						}
+						.btnBlock {
+							display: -webkit-flex;
+							display: flex;
+							-webkit-justify-content: center;
+							justify-content: center;
+							-webkit-align-content: center;
+							align-content: center;
+							-webkit-flex-flow: row wrap;
+							flex-flow: row wrap;
+							-webkit-align-items: center;
+							align-items: center;
+							width: 100%;
 
-						.btn:hover {
-							margin-top: 2px;
-							box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
-						}
+							.btn {
+								cursor: pointer;
+								width: 70px;
+								height: 70px;
+								border-radius: 50%;
+								background: green;
+								border: 5px solid #fff;
+								font-size: 14px;
+								color: #fff;
+								box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+								line-height: 70px;
+								position: absolute;
+								/*100 - 40 = 60*/
+								left: 60px;
+							}
 
-						.btn.disabled {
-							opacity: 0.4;
-							margin-top: 2px;
-							box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+							.btn:hover {
+								margin-top: 2px;
+								box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+							}
+
+							.btn.disabled {
+								opacity: 0.4;
+								margin-top: 2px;
+								box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+							}
 						}
 
 						#higher {

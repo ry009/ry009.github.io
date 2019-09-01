@@ -1182,10 +1182,7 @@ blockquote, q {
 							font-size: 14px;
 							color: #fff;
 							box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
-							line-height: 70px;
-							position: absolute;
-              /*100 - 40 = 60*/
-							left: 60px;}
+							line-height: 70px;}
 						#wrap .containerArticle#Creation .comContents .contentDiv .hiLowContainer .btnBlock .btn:hover {
 							margin-top: 2px;
 							box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);}

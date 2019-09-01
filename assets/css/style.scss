@@ -1542,7 +1542,16 @@ blockquote, q {
 								font-size: 14px;
 								color: #fff;
 								box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
-								line-height: 70px;
+								display: -webkit-flex;
+								display: flex;
+								-webkit-justify-content: center;
+								justify-content: center;
+								-webkit-align-content: center;
+								align-content: center;
+								-webkit-flex-flow: row wrap;
+								flex-flow: row wrap;
+								-webkit-align-items: center;
+								align-items: center;
 							}
 
 							.btn:hover {

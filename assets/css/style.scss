@@ -1483,7 +1483,16 @@ blockquote, q {
 
 						.containerBlock {
 							width: 300px;
-							display: block;
+							display: -webkit-flex;
+							display: flex;
+							-webkit-justify-content: center;
+							justify-content: center;
+							-webkit-align-content: center;
+							align-content: center;
+							-webkit-flex-flow: row wrap;
+							flex-flow: row wrap;
+							-webkit-align-items: center;
+							align-items: center;
 							margin: 100px auto;
 							font-weight: bold;
 							text-align: center;
@@ -1493,18 +1502,13 @@ blockquote, q {
 						.player {
 							width: 50px;
 							height: 70px;
+							margin: 0;
 						}
 
 						.controls {
 							width: 200px;
 							height: 70px;
 							position: relative;
-						}
-
-						.dealer,
-						.controls,
-						.player {
-							float: left;
 						}
 
 						#result {

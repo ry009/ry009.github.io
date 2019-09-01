@@ -1154,10 +1154,10 @@ blockquote, q {
 					#wrap .containerArticle#Creation .comContents .contentDiv .hiLowContainer .controls {
 						width: 200px;
 						position: relative;}
-					#wrap .containerArticle#Creation .comContents .contentDiv .hiLowContainer #result {
+					#wrap .containerArticle#Creation .comContents .contentDiv .hiLowContainer #resultCard {
 						line-height: 70px;
 						color: #f1c40f;}
-					#wrap .containerArticle#Creation .comContents .contentDiv .hiLowContainer #result.hidden {
+					#wrap .containerArticle#Creation .comContents .contentDiv .hiLowContainer #resultCard.hidden {
 						visibility: hidden;}
 					#wrap .containerArticle#Creation .comContents .contentDiv .hiLowContainer .btnBlock {
 						display: -webkit-flex;

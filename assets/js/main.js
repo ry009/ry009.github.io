@@ -30,7 +30,12 @@ $(function () {
 	var controller = new ScrollMagic.Controller();
 	var twMatrixSets = $('.twMatrix');
 	for (var i = 1; i <= twMatrixSets.length; i++) {
-		var twMatrixName = 'twMatrix0' + i;
+		var twMatrixName;
+		if(i <= 9) {
+			twMatrixName = 'twMatrix0' + i;
+		} else {
+			twMatrixName = 'twMatrix' + i;
+		}
 		TweenMax.set('.' + twMatrixName, {
 			skewY: 0.7, skewX: 1.5, scaleX: 0, scaleY: 0, y: -50,
 			rotation: 180,

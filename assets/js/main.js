@@ -31,7 +31,7 @@ $(function () {
 	var twMatrixSets = $('.twMatrix');
 	for (var i = 1; i <= twMatrixSets.length; i++) {
 		var twMatrixName;
-		if(i <= 9) {
+		if(i < 10) {
 			twMatrixName = 'twMatrix0' + i;
 		} else {
 			twMatrixName = 'twMatrix' + i;

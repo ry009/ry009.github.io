@@ -733,7 +733,7 @@ blockquote, q {
 					@include comContainer($maxWidth: 100%,$display: flex,$alignItems: center);
 
 					&:not(.last-of-type) {
-						margin-bottom: 40px;
+						margin-bottom: 80px;
 					}
 
 					.drawContainer {
@@ -2160,4 +2160,58 @@ header {
 	right: 0;
 	bottom: 0;
 	z-index: 10;
+}
+
+
+.canvasContainer {
+	position: relative;
+	width: 100%;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-content: center;
+	align-content: center;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-align-items: center;
+	align-items: center;
+	text-align: center;
+
+	canvas {
+		margin: 0 auto;
+	}
+}
+
+#pinpon {
+	background: #AAEDFF;
+}
+
+.btnBlock {
+	position: relative;
+	width: 100%;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-content: center;
+	align-content: center;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-align-items: center;
+	align-items: center;
+	text-align: center;
+}
+
+#pinponbtn {
+	margin: 3px auto;
+	width: 200px;
+	padding: 5px;
+	background: #00AAFF;
+	color: #FFFFFF;
+	border-radius: 3px;
+	cursor: pointer;
+}
+#pinponbtn:hover {
+	opacity: 0.8;
 }

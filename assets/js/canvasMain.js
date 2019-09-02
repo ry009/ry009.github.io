@@ -316,136 +316,136 @@ $(function () {
 
 
 
-(function () {
-	'use strict';
-	var canvas = document.getElementById('puzzle');
-	if (typeof canvas.getContext === 'undefined') { return; }
-	var ctx = canvas.getContext('2d');
-	var imgSrc = './assets/images/15puzzle.png';
-	var img = document.createElement('img');
-	img.src = imgSrc;
-	var tiles = [];
-	var RC = 4;// row count
-	var CC = 4;// col coun
-	var tileW = 280 / RC;
-	var tileH = 280 / CC;
-	var UDLR = [
-		[0, -1],
-		[0, 1],
-		[-1, 0],
-		[1, 0],
-	];
-	var moveCount = 320;
+// (function () {
+// 	'use strict';
+// 	var canvas = document.getElementById('puzzle');
+// 	if (typeof canvas.getContext === 'undefined') { return; }
+// 	var ctx = canvas.getContext('2d');
+// 	var imgSrc = './assets/images/15puzzle.png';
+// 	var img = document.createElement('img');
+// 	img.src = imgSrc;
+// 	var tiles = [];
+// 	var RC = 4;// row count
+// 	var CC = 4;// col coun
+// 	var tileW = 280 / RC;
+// 	var tileH = 280 / CC;
+// 	var UDLR = [
+// 		[0, -1],
+// 		[0, 1],
+// 		[-1, 0],
+// 		[1, 0],
+// 	];
+// 	var moveCount = 320;
 
-	function initTiles() {
-		for (var row = 0; row < RC; row++) {
-			tiles[row] = [];
-			for (var col = 0; col < CC; col++) {
-				tiles[row][col] = row * CC + col;
-			}
-		}
-		tiles[RC - 1][CC - 1] = -1;
-	}
+// 	function initTiles() {
+// 		for (var row = 0; row < RC; row++) {
+// 			tiles[row] = [];
+// 			for (var col = 0; col < CC; col++) {
+// 				tiles[row][col] = row * CC + col;
+// 			}
+// 		}
+// 		tiles[RC - 1][CC - 1] = -1;
+// 	}
 
-	function drawPuzzle() {
-		for (var row = 0; row < RC; row++) {
-			for (var col = 0; col < CC; col++) {
-				var dx = col * tileW;
-				var dy = row * tileH;
+// 	function drawPuzzle() {
+// 		for (var row = 0; row < RC; row++) {
+// 			for (var col = 0; col < CC; col++) {
+// 				var dx = col * tileW;
+// 				var dy = row * tileH;
 
-				if (tiles[row][col] === -1) {
-					ctx.fillStyle = '#eee';
-					ctx.fillRect(dx, dy, tileW, tileH);
-				} else {
-					var sx = (tiles[row][col] % CC) * tileW;
-					var sy = Math.floor(tiles[row][col] / RC) * tileH;
-					ctx.drawImage(img, sx, sy, tileW, tileH, dx, dy, tileW, tileH);
-				}
-			}
-		}
-	}
+// 				if (tiles[row][col] === -1) {
+// 					ctx.fillStyle = '#eee';
+// 					ctx.fillRect(dx, dy, tileW, tileH);
+// 				} else {
+// 					var sx = (tiles[row][col] % CC) * tileW;
+// 					var sy = Math.floor(tiles[row][col] / RC) * tileH;
+// 					ctx.drawImage(img, sx, sy, tileW, tileH, dx, dy, tileW, tileH);
+// 				}
+// 			}
+// 		}
+// 	}
 
-	function checkResult() {
-		for (var row = 0; row < RC; row++) {
-			for (var col = 0; col < CC; col++) {
-				if (row === RC - 1 && col === CC - 1) {
-					return true;
-				}
-				if (tiles[row][col] !== row * CC + col) {
-					return false;
-				}
-			}
-		}
-	}
+// 	function checkResult() {
+// 		for (var row = 0; row < RC; row++) {
+// 			for (var col = 0; col < CC; col++) {
+// 				if (row === RC - 1 && col === CC - 1) {
+// 					return true;
+// 				}
+// 				if (tiles[row][col] !== row * CC + col) {
+// 					return false;
+// 				}
+// 			}
+// 		}
+// 	}
 
-	function moveBlank(count) {
-		var blankRow, blankCol;
-		var targetRow, targetCol;
-		var targetPos;
-		blankRow = RC - 1;
-		blankCol = CC - 1;
+// 	function moveBlank(count) {
+// 		var blankRow, blankCol;
+// 		var targetRow, targetCol;
+// 		var targetPos;
+// 		blankRow = RC - 1;
+// 		blankCol = CC - 1;
 
-		while (true) {
-			targetPos = Math.floor(Math.random() * UDLR.length);
-			targetRow = blankRow + UDLR[targetPos][1];
-			targetCol = blankCol + UDLR[targetPos][0];
+// 		while (true) {
+// 			targetPos = Math.floor(Math.random() * UDLR.length);
+// 			targetRow = blankRow + UDLR[targetPos][1];
+// 			targetCol = blankCol + UDLR[targetPos][0];
 
-			if (targetRow < 0 || targetRow >= RC) {
-				continue;
-			}
-			if (targetCol < 0 || targetCol >= CC) {
-				continue;
-			}
+// 			if (targetRow < 0 || targetRow >= RC) {
+// 				continue;
+// 			}
+// 			if (targetCol < 0 || targetCol >= CC) {
+// 				continue;
+// 			}
 
-			tiles[blankRow][blankCol] = tiles[targetRow][targetCol];
-			tiles[targetRow][targetCol] = -1;
+// 			tiles[blankRow][blankCol] = tiles[targetRow][targetCol];
+// 			tiles[targetRow][targetCol] = -1;
 
-			blankRow = targetRow;
-			blankCol = targetCol;
-			if (!--count) {
-				break;
-			}
-		}
-	}
+// 			blankRow = targetRow;
+// 			blankCol = targetCol;
+// 			if (!--count) {
+// 				break;
+// 			}
+// 		}
+// 	}
 
-	img.addEventListener('load', function () {
-		initTiles();
-		moveBlank(moveCount);
-		drawPuzzle();
-	});
+// 	img.addEventListener('load', function () {
+// 		initTiles();
+// 		moveBlank(moveCount);
+// 		drawPuzzle();
+// 	});
 
-	canvas.addEventListener('click', function (e) {
-		var targetRow, targetCol;
-		var x, y;
-		var rect = e.target.getBoundingClientRect();
-		x = e.clientX - rect.left;
-		y = e.clientY - rect.top;
-		var row = Math.floor(y / tileH);
-		var col = Math.floor(x / tileW);
-		if (tiles[row][col] === -1) {
-			return;
-		}
+// 	canvas.addEventListener('click', function (e) {
+// 		var targetRow, targetCol;
+// 		var x, y;
+// 		var rect = e.target.getBoundingClientRect();
+// 		x = e.clientX - rect.left;
+// 		y = e.clientY - rect.top;
+// 		var row = Math.floor(y / tileH);
+// 		var col = Math.floor(x / tileW);
+// 		if (tiles[row][col] === -1) {
+// 			return;
+// 		}
 
-		for (var i = 0; i < UDLR.length; i++) {
-			targetRow = row + UDLR[i][1];
-			targetCol = col + UDLR[i][0];
-			if (targetRow < 0 || targetRow >= RC) {
-				continue;
-			}
-			if (targetCol < 0 || targetCol >= CC) {
-				continue;
-			}
-			if (tiles[targetRow][targetCol] === -1) {
-				tiles[targetRow][targetCol] = tiles[row][col];
-				tiles[row][col] = -1;
-				drawPuzzle();
-				if (checkResult()) {
-					setTimeout(function () {
-						alert('Game Clear');
-					}, 1);
-				}
-				break;
-			}
-		}
-	});
-})();
+// 		for (var i = 0; i < UDLR.length; i++) {
+// 			targetRow = row + UDLR[i][1];
+// 			targetCol = col + UDLR[i][0];
+// 			if (targetRow < 0 || targetRow >= RC) {
+// 				continue;
+// 			}
+// 			if (targetCol < 0 || targetCol >= CC) {
+// 				continue;
+// 			}
+// 			if (tiles[targetRow][targetCol] === -1) {
+// 				tiles[targetRow][targetCol] = tiles[row][col];
+// 				tiles[row][col] = -1;
+// 				drawPuzzle();
+// 				if (checkResult()) {
+// 					setTimeout(function () {
+// 						alert('Game Clear');
+// 					}, 1);
+// 				}
+// 				break;
+// 			}
+// 		}
+// 	});
+// })();

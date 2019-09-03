@@ -154,7 +154,7 @@ $(window).on('load', function () {
 $(function () {
 	$('.pageTop').hide();
 	$(window).on('scroll', function () {
-		if ($(this).scrollTop() > 200) {
+		if ($(this).scrollTop() > 300) {
 			$('.pageTop').fadeIn();
 		} else {
 			$('.pageTop').fadeOut();

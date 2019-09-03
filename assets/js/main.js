@@ -149,12 +149,13 @@ $(window).on('load', function () {
 	});
 });
 
+$('.pageTop').hide();
 
+$(window).on('load', function () {
+	var targetH = $('.containerArticle:first').outerHeight();
 
-$(function () {
-	$('.pageTop').hide();
 	$(window).on('scroll', function () {
-		if ($(this).scrollTop() > 300) {
+		if ($(this).scrollTop() > targetH) {
 			$('.pageTop').fadeIn();
 		} else {
 			$('.pageTop').fadeOut();

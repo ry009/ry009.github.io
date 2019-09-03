@@ -144,7 +144,7 @@ $(function () {
 $(window).on('load', function () {
 	$('#wrap').fadeIn("slow");
 	$('.loading').addClass("over");
-	$('.loading').delay(700).fadeOut(2500, function () {
+	$('.loading').delay(700).fadeOut(function () {
 		$('.loading').remove();
 	});
 });

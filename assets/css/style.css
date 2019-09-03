@@ -120,6 +120,9 @@ blockquote, q {
 		content: '';
 		content: none;}
 
+.home #wrap {
+	display: none;}
+
 #wrap {
 	position: relative;
 	overflow: hidden;

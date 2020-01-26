@@ -121,6 +121,36 @@ $(function () {
 	}
 });
 
+
+$(function () {
+	$(".fade_off p").each(function (index,elem) {
+		let $target = $(this);
+		let $text = elem.innerText;
+		let $word = $text.split("");
+		$.each($word, function (index,elem) {
+			var newEL = $("<span/>").text(elem).css({ opacity: 0 });
+			newEL.appendTo($target);
+			newEL.delay(index * 70);
+			newEL.animate({ opacity: 1 }, 1100);
+		});
+	});
+	$(window).scroll(function () {
+		$(".fade_off p").each(function () {
+			var imgPos = $(this).offset().top;
+			var scroll = $(window).scrollTop();
+			var windowHeight = $(window).height();
+			if (scroll > imgPos - windowHeight + windowHeight / 5) {
+				$(this).addClass("fade_on");
+				
+				
+			} else {
+				$(this).removeClass("fade_on");
+			}
+			
+		});
+	});
+});
+
 // ページ読み込み中にローディング画面
 $(function () {
 	var h = $(window).height(); // ブラウザウィンドウの高さを取得
@@ -393,3 +423,4 @@ $(function () {
 		initPhotoSwipeFromDOM(".my-gallery");
 	}
 })();
+
